@@ -1,0 +1,26 @@
+header {
+    height: 5% !important;
+}
+
+main {
+    align-items: flex-start !important;
+    height: 55% !important;
+}
+
+footer {
+    align-items: flex-start !important;
+    justify-content: start;
+    height: 40% !important;
+}
+
+main>h1 {
+    float: left !important;
+    text-transform: lowercase;
+}
+
+footer>a {
+    color: var(--text-color);
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
