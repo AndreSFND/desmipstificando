@@ -1,0 +1,11 @@
+footer {
+
+    align-items: flex-start !important;
+
+}
+
+footer > a {
+
+    color: var(--title-color) !important;
+
+}
