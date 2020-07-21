@@ -1,3 +1,5 @@
+/// <reference path="./Questoes/Alternativa.ts" />
+
 class Partida {
 
     private nivel: number;
@@ -32,9 +34,13 @@ class Partida {
         this.setNivel(novoNivel);
         console.log(this.getNivel);
     }
-
 }
 
 // Teste da funcao
-/*let partidinha = new Partida(1, 1);
-partidinha.advNivel(3);*/
+let partidinha = new Partida(1, 1);
+let pergunta1 = new Alternativa("Biscoito ou bolacha?",['biscuit', 'boule'], 1);
+console.log(pergunta1.getEnunciado);
+console.log(pergunta1.getAlternativas[0]);
+console.log(pergunta1.getAlternativas[1]);
+console.log("A resposta certa eh "+pergunta1.getCorreta);
+partidinha.advNivel(1);

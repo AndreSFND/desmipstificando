@@ -1,7 +1,8 @@
+/// <reference path="./../Questao.ts" />
+
 class Alternativa extends Questao {
     private alternativas: string[];
     private correta: number;
-    private acertou: boolean;
 
     public getAlternativas(): string[] {
         return this.alternativas;
@@ -19,14 +20,6 @@ class Alternativa extends Questao {
         this.correta = correta;
     }
 
-    public isAcertou(): boolean {
-        return this.acertou;
-    }
-
-    public setAcertou(acertou: boolean): void {
-        this.acertou = acertou;
-    }
-
     constructor(enunciado: string, alternativas: string[], correta: number) {
         super(enunciado);
         this.setAlternativas(alternativas);
@@ -34,14 +27,7 @@ class Alternativa extends Questao {
     }
 
     public checa(sugerido: number) {
-        if(sugerido == this.correta)
-        {
-            this.setAcertou(true);
-        }
-        else
-        {
-            this.setAcertou(false);
-        }
+        sugerido == this.correta ? super.setAcertou(true) : super.setAcertou(false);
     }
 
 }
