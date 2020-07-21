@@ -1,5 +1,5 @@
 $(document).ready(() => {
 
-    timer = setTimeout(function(){ LoadPage(Level); }, 5000);
+    timer = setTimeout(() => LoadPage(Level), 4000);
 
 });

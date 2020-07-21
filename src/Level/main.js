@@ -1,5 +1,5 @@
 $(document).ready(() => {
 
-    timer = setTimeout(function(){ LoadPage(Question); }, 5000);
+    timer = setTimeout(() => LoadPage(Question), 4000);
 
 });
