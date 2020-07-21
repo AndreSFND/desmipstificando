@@ -21,8 +21,8 @@ class Alternativa extends Questao {
         this.correta = correta;
     }
 
-    constructor(enunciado: string, alternativas: string[], correta: number) {
-        super(enunciado);
+    constructor(enunciado: string, dificuldade:number, alternativas: string[], correta: number) {
+        super(enunciado, dificuldade);
         this.setAlternativas(alternativas);
         this.setCorreta(correta);
     }
