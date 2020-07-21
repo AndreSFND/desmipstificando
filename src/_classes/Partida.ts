@@ -24,8 +24,9 @@ class Partida {
         this.setMode(mode);
     }
 
-    // Sim, eu sei, eh uma funcao inutil visto o setNivel. Eh pra testar so
-    advNivel(novoNivel: number)
+    // A funcao advNivel eh inutil considerando a existencia de setNivel, mas ela da um aviso
+    // No console para testar
+    public advNivel(novoNivel: number)
     {
         console.log("O nivel foi alterado. De "+ this.getNivel +" voce foi para...");
         this.setNivel(novoNivel);
@@ -34,6 +35,6 @@ class Partida {
 
 }
 
-// Teste
-let partidinha = new Partida(1, 1);
-partidinha.advNivel(3);
+// Teste da funcao
+/*let partidinha = new Partida(1, 1);
+partidinha.advNivel(3);*/
