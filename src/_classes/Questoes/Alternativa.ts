@@ -1,4 +1,5 @@
 /// <reference path="./../Questao.ts" />
+import { Questao } from "./../Questao";
 
 class Alternativa extends Questao {
     private alternativas: string[];
@@ -31,3 +32,5 @@ class Alternativa extends Questao {
     }
 
 }
+
+export { Alternativa };
