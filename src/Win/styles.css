@@ -4,6 +4,7 @@ main {
 
 }
 
+
 footer {
 
     align-items: flex-start !important;
@@ -25,25 +26,8 @@ h2 {
 
 }
 
-.password {
-
-    display: flex;
-    flex-direction: row;
-
-}
-
-input {
-
-    background-color: transparent;
-    border: none;
-    border-bottom: .2em solid var(--text-color);
-
-    width: 1em;
-    margin: 10px;
-    color: var(--text-color);
+p {
 
     font-size: 2em;
-    font-weight: bold;
-    text-align: center;
 
 }

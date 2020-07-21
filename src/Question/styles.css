@@ -1,26 +1,52 @@
 header {
-    height: 5% !important;
+
+    align-items: flex-start !important;
+
+}
+
+p {
+
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: bold;
+
 }
 
 main {
-    align-items: flex-start !important;
-    height: 55% !important;
-}
 
-footer {
     align-items: flex-start !important;
     justify-content: start;
-    height: 40% !important;
+
 }
 
-main>h1 {
+main > p {
+
+    font-size: 2.5em;
+
+}
+
+main > h1 {
+
     float: left !important;
     text-transform: lowercase;
+    font-weight: bold;
+
 }
 
-footer>a {
+main > ul {
+
+    margin-top: 8em;
+
+    list-style: none;
+
+}
+
+main > ul > li {
+
     color: var(--text-color);
+    font-weight: bold;
+
     margin-top: 15px;
     margin-bottom: 15px;
-    font-weight: 500;
+
 }

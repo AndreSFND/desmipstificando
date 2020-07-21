@@ -1,0 +1,20 @@
+main {
+
+    align-items: center !important;
+
+}
+
+h2 {
+
+    font-size: 2em;
+    letter-spacing: .1em;
+    color: var(--title-color) !important;
+    margin-bottom: 2em;
+
+}
+
+p {
+
+    font-size: 2em;
+
+}
