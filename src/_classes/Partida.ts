@@ -41,7 +41,7 @@ class Partida {
 
 let usuarioFake = 0;// Ele acha q eh biscoito
 let partidinha = new Partida(1, 1);
-let pergunta1 = new Alternativa("Biscoito ou bolacha?",['1) biscuit', '2) boule'], 1);// O certo eh bolacha
+let pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['1) biscuit', '2) boule'], 1);// O certo eh bolacha
 console.log(pergunta1.getEnunciado());
 console.log(pergunta1.getAlternativas()[0]);
 console.log(pergunta1.getAlternativas()[1]);
