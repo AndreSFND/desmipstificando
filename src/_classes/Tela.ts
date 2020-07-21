@@ -1,0 +1,9 @@
+class Tela {
+
+    constructor() {
+
+        
+
+    }
+
+}
