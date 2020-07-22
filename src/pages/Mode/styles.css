@@ -1,22 +1,23 @@
-main {
+#mode-main {
 
     align-items: center !important;
 
 }
 
-footer {
+
+#mode-footer {
 
     align-items: flex-start !important;
 
 }
 
-footer > a {
+#mode-footer > a {
 
     color: var(--title-color) !important;
 
 }
 
-h2 {
+.mode-h2 {
 
     font-size: 2em;
     letter-spacing: .1em;
@@ -25,25 +26,12 @@ h2 {
 
 }
 
-.password {
+.modes {
 
     display: flex;
     flex-direction: row;
+    gap: 3em;
 
-}
-
-input {
-
-    background-color: transparent;
-    border: none;
-    border-bottom: .2em solid var(--text-color);
-
-    width: 1em;
-    margin: 10px;
-    color: var(--text-color);
-
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1.2em;
 
 }

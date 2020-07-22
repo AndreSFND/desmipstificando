@@ -1,10 +1,10 @@
-header {
+#question-header {
 
     align-items: flex-start !important;
 
 }
 
-p {
+.question-p {
 
     color: var(--text-color);
     font-size: 1.5em;
@@ -12,20 +12,20 @@ p {
 
 }
 
-main {
+#question-main {
 
     align-items: flex-start !important;
     justify-content: start;
 
 }
 
-main > p {
+#question-main > p {
 
     font-size: 2.5em;
 
 }
 
-main > h1 {
+#question-main > h1 {
 
     float: left !important;
     text-transform: lowercase;
@@ -33,7 +33,7 @@ main > h1 {
 
 }
 
-main > ul {
+#question-main > ul {
 
     margin-top: 8em;
 
@@ -41,7 +41,7 @@ main > ul {
 
 }
 
-main > ul > li {
+#question-main > ul > li {
 
     color: var(--text-color);
     font-weight: bold;

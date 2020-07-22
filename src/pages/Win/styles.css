@@ -1,23 +1,23 @@
-main {
+#win-main {
 
     align-items: center !important;
 
 }
 
 
-footer {
+#win-footer {
 
     align-items: flex-start !important;
 
 }
 
-footer > a {
+#win-footer > a {
 
     color: var(--title-color) !important;
 
 }
 
-h2 {
+.win-h2 {
 
     font-size: 2em;
     letter-spacing: .1em;
@@ -26,7 +26,7 @@ h2 {
 
 }
 
-p {
+.win-p {
 
     font-size: 2em;
 
