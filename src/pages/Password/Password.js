@@ -17,7 +17,9 @@ var Password = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Password.prototype.OnEnter = function () {
-        $("#root").load("./src/pages/Password", function () {
+        var el = $('<div></div>').load("./src/pages/Password", function () {
+            $("#root").append(el);
+            Main.moveRight();
             $("input").on('input', function (event) {
                 var element = $(event.target);
                 var index = parseFloat(element.attr('data-index'));
