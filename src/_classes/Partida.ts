@@ -4,6 +4,7 @@ class Partida {
 
     private nivel: number;
     private mode: number;
+    private questoesAlternativa: Alternativa[] = [];
 
     public getNivel(): number {
         return this.nivel;
@@ -19,6 +20,18 @@ class Partida {
 
     public setMode(mode: number): void {
         this.mode = mode;
+    }
+
+    public getQuestoesAlternativa(): Alternativa[] {
+        return this.questoesAlternativa;
+    }
+
+    public addUltimaQuestoesAlternativa(questoesAlt: Alternativa): void {
+        this.questoesAlternativa.push(questoesAlt);
+    }
+
+    public removeUltimaQuestoesAlternativa(): void {
+        this.questoesAlternativa.pop();
     }
 
     constructor(nivel: number, mode: number) {
@@ -38,14 +51,19 @@ class Partida {
 
 // Teste da classe
 
-let usuarioFake = 0;// Ele acha q eh biscoito
+let usuarioFake = 1;// Ele acha q eh biscoito e pera
 let partidinha = new Partida(1, 1);
-let pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['1) biscuit', '2) boule'], 1);// O certo eh bolacha
-console.log(pergunta1.getEnunciado());
-console.log(pergunta1.getAlternativas()[0]);
-console.log(pergunta1.getAlternativas()[1]);
+let pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'bolache'], 1);// O certo eh bolacha
+let pergunta2 = new Alternativa("Leite ou pêra?", 1, ['leite', 'pêra'], 0);// O certo eh leite
+partidinha.addUltimaQuestoesAlternativa(pergunta1);
+partidinha.addUltimaQuestoesAlternativa(pergunta2);
+
+// Primeira questao, ele erra
+console.log(partidinha.getQuestoesAlternativa()[0].getEnunciado());
+console.log(partidinha.getQuestoesAlternativa()[0].getAlternativas()[0]);
+console.log(partidinha.getQuestoesAlternativa()[0].getAlternativas()[1]);
 console.log("A resposta dada foi "+usuarioFake);
-if(usuarioFake == pergunta1.getCorreta())
+if(usuarioFake == partidinha.getQuestoesAlternativa()[0].getCorreta())
 {
     console.log("Voce acertou!");
     partidinha.advNivel(2);
@@ -53,4 +71,21 @@ if(usuarioFake == pergunta1.getCorreta())
 else
 {
     console.log("Voce errou!");
-}  
+}
+
+console.log(" ");
+
+// Segunda questao ele acerta
+console.log(partidinha.getQuestoesAlternativa()[1].getEnunciado());
+console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[0]);
+console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[1]);
+console.log("A resposta dada foi "+usuarioFake);
+if(usuarioFake == partidinha.getQuestoesAlternativa()[1].getCorreta())
+{
+    console.log("Voce acertou!");
+    partidinha.advNivel(3);
+}
+else
+{
+    console.log("Voce errou!");
+}
