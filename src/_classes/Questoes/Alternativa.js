@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,11 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-exports.Alternativa = void 0;
-/// <reference path="./../Questao.ts" />
-var Questao_1 = require("./../Questao");
-var Alternativa = /** @class */ (function (_super) {
+var Alternativa = (function (_super) {
     __extends(Alternativa, _super);
     function Alternativa(enunciado, dificuldade, alternativas, correta) {
         var _this = _super.call(this, enunciado, dificuldade) || this;
@@ -40,5 +35,4 @@ var Alternativa = /** @class */ (function (_super) {
         sugerido == this.correta ? _super.prototype.setAcertou.call(this, true) : _super.prototype.setAcertou.call(this, false);
     };
     return Alternativa;
-}(Questao_1.Questao));
-exports.Alternativa = Alternativa;
+}(Questao));

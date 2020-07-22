@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -12,8 +11,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-var Alternativa_1 = require("../../_classes/Questoes/Alternativa");
 var Question = (function (_super) {
     __extends(Question, _super);
     function Question() {
@@ -29,8 +26,8 @@ var Question = (function (_super) {
     Question.prototype.OnExit = function () {
     };
     Question.addAlternativa = function () {
-        var pergunta1 = new Alternativa_1.Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
-        $("#alternativas").append("<li> <a class=\"option\">" + pergunta1.getAlternativas()[0] + "</a> </li>");
+        var pergunta = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
+        $("#alternativas").append("<li> <a class=\"option\">" + pergunta.getAlternativas()[0] + "</a> </li>");
     };
     return Question;
 }(Tela));
