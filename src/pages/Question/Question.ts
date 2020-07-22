@@ -1,4 +1,5 @@
 /// <reference path="../../_classes/Tela.ts" />
+/// <reference path="../../_classes/Questoes/Alternativa.ts" />
 
 class Question extends Tela {
 
@@ -13,11 +14,20 @@ class Question extends Tela {
             Main.moveRight();
 
         });
+
+        Question.addAlternativa();
         
     }
 
     OnExit() {
 
+    }
+
+    public static addAlternativa() {
+        let pergunta = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
+        // @ts-ignore
+        $("#alternativas").append(`<li> <a class="option">${pergunta.getAlternativas()[0]}</a> </li>`);
+        
     }
 
 }

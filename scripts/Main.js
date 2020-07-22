@@ -23,7 +23,7 @@ var Main = (function () {
                     $("#root").find('div:first').remove();
                     $("#root").removeClass("stationary-left").removeClass("moving-right");
                 }, 1000);
-            }, 10);
+            }, 100);
         }
     };
     Main.moveLeft = function () {
@@ -36,7 +36,7 @@ var Main = (function () {
                     $("#root").removeClass("stationary-left").removeClass("moving-left");
                     $("#root").css("right", "0vw");
                 }, 1000);
-            }, 10);
+            }, 100);
         }
     };
     Main.telas = {};
