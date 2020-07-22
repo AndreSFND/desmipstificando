@@ -51,14 +51,14 @@ class Partida {
 
 // Teste da classe
 
-let usuarioFake = 1;// Ele acha q eh biscoito e pera
+let usuarioFake = 1;// Ele acha q eh bolacha e pera
 let partidinha = new Partida(1, 1);
 let pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'bolache'], 1);// O certo eh bolacha
 let pergunta2 = new Alternativa("Leite ou pêra?", 1, ['leite', 'pêra'], 0);// O certo eh leite
 partidinha.addUltimaQuestoesAlternativa(pergunta1);
 partidinha.addUltimaQuestoesAlternativa(pergunta2);
 
-// Primeira questao, ele erra
+// Primeira questao, ele acerta
 console.log(partidinha.getQuestoesAlternativa()[0].getEnunciado());
 console.log(partidinha.getQuestoesAlternativa()[0].getAlternativas()[0]);
 console.log(partidinha.getQuestoesAlternativa()[0].getAlternativas()[1]);
@@ -75,7 +75,7 @@ else
 
 console.log(" ");
 
-// Segunda questao ele acerta
+// Segunda questao ele erra
 console.log(partidinha.getQuestoesAlternativa()[1].getEnunciado());
 console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[0]);
 console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[1]);
