@@ -13,9 +13,9 @@ class Question extends Tela {
             
             Main.moveRight();
 
-        });
+            Question.addAlternativa();
 
-        Question.addAlternativa();
+        });
         
     }
 
@@ -25,9 +25,18 @@ class Question extends Tela {
 
     public static addAlternativa() {
         let pergunta = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
-        // @ts-ignore
-        $("#alternativas").append(`<li> <a class="option">${pergunta.getAlternativas()[0]}</a> </li>`);
         
+        // @ts-ignore
+        $("#enunciado").html(pergunta.getEnunciado());
+        for(let i:number = 0 ; i < 2; i++)
+        {
+            if(i == pergunta.getCorreta())
+            // @ts-ignore
+            $("#alternativas").append(`<li> <a onClick="Main.LoadPage('Win')" class="option">${pergunta.getAlternativas()[i]}</a> </li>`);
+            else
+            // @ts-ignore
+            $("#alternativas").append(`<li> <a class="option">${pergunta.getAlternativas()[i]}</a> </li>`);
+        }
     }
 
 }
