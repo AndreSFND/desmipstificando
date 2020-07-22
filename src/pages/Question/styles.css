@@ -1,6 +1,7 @@
 #question-header {
 
     align-items: flex-start !important;
+    justify-content: flex-end !important;
 
 }
 
@@ -33,6 +34,12 @@
 
 }
 
+#question-main > h1:first-letter {
+
+    font-size: 1em !important;
+
+}
+
 #question-main > ul {
 
     margin-top: 8em;
@@ -48,5 +55,17 @@
 
     margin-top: 15px;
     margin-bottom: 15px;
+
+}
+
+#question-footer {
+
+    align-items: flex-start !important;
+
+}
+
+#question-footer > a {
+
+    color: var(--title-color) !important;
 
 }
