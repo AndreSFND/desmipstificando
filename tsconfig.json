@@ -7,6 +7,9 @@
     "files": [
         "./scripts/Main.ts",
         "./src/_classes/Tela.ts",
+        "./src/_classes/Partida.ts",
+        "./src/_classes/Questao.ts",
+        "./src/_classes/Questoes/Alternativa.ts",
         "./src/Index.ts",
         "./src/pages/Mode/Mode.ts",
         "./src/pages/Password/Password.ts",
