@@ -16,27 +16,17 @@ var Main = (function () {
     };
     Main.moveRight = function () {
         if ($("#root").children().length > 1) {
-            $("#root").css("right", "0vw");
-            setTimeout(function () {
-                $("#root").addClass("moving-right");
-                setTimeout(function () {
-                    $("#root").find('div:first').remove();
-                    $("#root").removeClass("stationary-left").removeClass("moving-right");
-                }, 1000);
-            }, 10);
+            $("#root").css("right", "0vw").animate({ right: "100vw" }, "slow", function () {
+                $("#root").find('div:first').remove();
+                $("#root").css("right", "0vw");
+            });
         }
     };
     Main.moveLeft = function () {
         if ($("#root").children().length > 1) {
-            $("#root").css("right", "100vw");
-            setTimeout(function () {
-                $("#root").addClass("moving-left");
-                setTimeout(function () {
-                    $("#root").children()[1].remove();
-                    $("#root").removeClass("stationary-left").removeClass("moving-left");
-                    $("#root").css("right", "0vw");
-                }, 1000);
-            }, 10);
+            $("#root").css("right", "100vw").animate({ right: "0vw" }, "slow", function () {
+                $("#root").children()[1].remove();
+            });
         }
     };
     Main.telas = {};

@@ -42,23 +42,15 @@ class Main {
         if( $("#root").children().length > 1 ) {
 
             // @ts-ignore
-            $("#root").css("right", "0vw");
+            $("#root").css("right", "0vw").animate({ right: "100vw" }, "slow", () => {
 
-            setTimeout(() => {
+                 // @ts-ignore
+                 $("#root").find('div:first').remove();
 
-                // @ts-ignore
-                $("#root").addClass("moving-right");
+                 // @ts-ignore
+                 $("#root").css("right", "0vw");
 
-                setTimeout(() => {
-
-                    // @ts-ignore
-                    $("#root").find('div:first').remove();
-                    // @ts-ignore
-                    $("#root").removeClass("stationary-left").removeClass("moving-right");
-
-                }, 1000);
-
-            }, 10);
+            });
 
         }
 
@@ -70,25 +62,12 @@ class Main {
         if($("#root").children().length > 1) {
 
             // @ts-ignore
-            $("#root").css("right", "100vw");
+            $("#root").css("right", "100vw").animate({ right: "0vw" }, "slow", () => {
 
-           setTimeout(() => {
+                // @ts-ignore
+                $("#root").children()[1].remove();
 
-               // @ts-ignore
-               $("#root").addClass("moving-left");
-
-               setTimeout(() => {
-
-                   // @ts-ignore
-                   $("#root").children()[1].remove();
-                   // @ts-ignore
-                   $("#root").removeClass("stationary-left").removeClass("moving-left");
-                   // @ts-ignore
-                   $("#root").css("right", "0vw");
-
-               }, 1000);
-
-           }, 10);
+           });
 
        }
 

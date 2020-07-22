@@ -48,20 +48,6 @@ body {
 
 }
 
-.moving-right {
-
-    transition: all 1s ease;
-    right: 100vw !important;
-
-}
-
-.moving-left {
-
-    transition: all 1s ease;
-    right: 0vw !important;
-
-}
-
 #root > div > div {
 
     background-repeat: no-repeat;
