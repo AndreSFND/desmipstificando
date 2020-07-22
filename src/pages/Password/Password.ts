@@ -14,8 +14,13 @@ class Password extends Tela {
     OnEnter() {
 
         // @ts-ignore
-        $("#root").load("./src/pages/Password", () => {
+        var el = $('<div></div>').load("./src/pages/Password", () => {
 
+            // @ts-ignore
+            $("#root").append(el);
+            
+            Main.moveRight();
+            
             /**
              * Define a interacao do PIN (avancar apos inserir um valor)
              */
