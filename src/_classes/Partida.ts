@@ -1,5 +1,4 @@
 /// <reference path="./Questoes/Alternativa.ts" />
-import { Alternativa } from "./Questoes/Alternativa";
 
 class Partida {
 

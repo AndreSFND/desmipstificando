@@ -1,5 +1,5 @@
-// Temos uma classe Questao abstrata, pois ela eh so a base para os varios tipos de questoes
-// No nosso programa
+// Temos uma classe Questao abstrata, pois ela eh so a base para os varios 
+// Tipos de questoes no nosso programa
 abstract class Questao {
 
     //Todas as questoes tem um enunciado, obrigatoriamente
@@ -38,5 +38,3 @@ abstract class Questao {
     }
 
 }
-
-export { Questao };
