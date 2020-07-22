@@ -1,0 +1,49 @@
+#pass-main {
+
+    align-items: center !important;
+
+}
+
+#pass-footer {
+
+    align-items: flex-start !important;
+
+}
+
+#pass-footer > a {
+
+    color: var(--title-color) !important;
+
+}
+
+.level-h2 {
+
+    font-size: 2em;
+    letter-spacing: .1em;
+    color: var(--title-color) !important;
+    margin-bottom: 2em;
+
+}
+
+.password {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+input {
+
+    background-color: transparent;
+    border: none;
+    border-bottom: .2em solid var(--text-color);
+
+    width: 1em;
+    margin: 10px;
+    color: var(--text-color);
+
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+
+}

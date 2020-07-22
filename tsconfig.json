@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true
+    },
+    "files": [
+        "./scripts/Main.ts",
+        "./src/_classes/Tela.ts",
+        "./src/Index.ts",
+        "./src/pages/Mode/Mode.ts",
+        "./src/pages/Password/Password.ts",
+        "./src/pages/Level/Level.ts",
+        "./src/pages/Question/Question.ts",
+        "./src/pages/Win/Win.ts",
+    ]
+}

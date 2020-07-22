@@ -1,10 +1,10 @@
-main {
+#level-main {
 
     align-items: center !important;
 
 }
 
-h2 {
+.level-h2 {
 
     font-size: 2em;
     letter-spacing: .1em;
@@ -13,7 +13,7 @@ h2 {
 
 }
 
-p {
+.level-p {
 
     font-size: 2em;
 

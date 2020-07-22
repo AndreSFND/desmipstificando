@@ -1,9 +1,6 @@
-class Tela {
+abstract class Tela {
 
-    constructor() {
-
-        
-
-    }
+    OnEnter() {}
+    OnExit() {}
 
 }

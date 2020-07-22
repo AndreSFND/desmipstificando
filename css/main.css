@@ -26,7 +26,43 @@ body {
 
 }
 
-#root > div {
+#wrapper {
+
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+#root {
+
+    display: flex;
+    flex-direction: row;
+
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+
+}
+
+.moving-right {
+
+    transition: all 1s ease;
+    right: 100vw !important;
+
+}
+
+.moving-left {
+
+    transition: all 1s ease;
+    right: 0vw !important;
+
+}
+
+#root > div > div {
 
     background-repeat: no-repeat;
     background-attachment: fixed;
