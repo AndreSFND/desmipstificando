@@ -20,14 +20,20 @@ var Question = (function (_super) {
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
+            Question.addAlternativa();
         });
-        Question.addAlternativa();
     };
     Question.prototype.OnExit = function () {
     };
     Question.addAlternativa = function () {
         var pergunta = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
-        $("#alternativas").append("<li> <a class=\"option\">" + pergunta.getAlternativas()[0] + "</a> </li>");
+        $("#enunciado").html(pergunta.getEnunciado());
+        for (var i = 0; i < 2; i++) {
+            if (i == pergunta.getCorreta())
+                $("#alternativas").append("<li> <a onClick=\"Main.LoadPage('Win')\" class=\"option\">" + pergunta.getAlternativas()[i] + "</a> </li>");
+            else
+                $("#alternativas").append("<li> <a class=\"option\">" + pergunta.getAlternativas()[i] + "</a> </li>");
+        }
     };
     return Question;
 }(Tela));

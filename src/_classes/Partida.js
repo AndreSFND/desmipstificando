@@ -35,7 +35,7 @@ var Partida = (function () {
 var usuarioFake = 1;
 var partidinha = new Partida(1, 1);
 var pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'bolache'], 1);
-var pergunta2 = new Alternativa("Leite ou pêra?", 1, ['leite', 'pera'], 0);
+var pergunta2 = new Alternativa("Leite ou pêra?", 1, ['leite', 'pêra'], 0);
 partidinha.addUltimaQuestoesAlternativa(pergunta1);
 partidinha.addUltimaQuestoesAlternativa(pergunta2);
 console.log(partidinha.getQuestoesAlternativa()[0].getEnunciado());
@@ -49,14 +49,14 @@ if (usuarioFake == partidinha.getQuestoesAlternativa()[0].getCorreta()) {
 else {
     console.log("Voce errou!");
 }
-console.log("PROXIMA...");
+console.log(" ");
 console.log(partidinha.getQuestoesAlternativa()[1].getEnunciado());
 console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[0]);
 console.log(partidinha.getQuestoesAlternativa()[1].getAlternativas()[1]);
 console.log("A resposta dada foi " + usuarioFake);
 if (usuarioFake == partidinha.getQuestoesAlternativa()[1].getCorreta()) {
     console.log("Voce acertou!");
-    partidinha.advNivel(2);
+    partidinha.advNivel(3);
 }
 else {
     console.log("Voce errou!");
