@@ -89,4 +89,4 @@ Main.AdicionaTela("Win", new Win());
 /**
  * Carrega a index
  */
-Main.LoadPage('Index');
+Main.LoadPage('Question');

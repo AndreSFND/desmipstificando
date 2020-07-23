@@ -29,10 +29,29 @@ var Question = (function (_super) {
         var pergunta = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'boule'], 1);
         $("#enunciado").html(pergunta.getEnunciado());
         for (var i = 0; i < 2; i++) {
-            if (i == pergunta.getCorreta())
-                $("#alternativas").append("<li> <a onClick=\"Main.LoadPage('Win')\" class=\"option\">" + pergunta.getAlternativas()[i] + "</a> </li>");
-            else
-                $("#alternativas").append("<li> <a class=\"option\">" + pergunta.getAlternativas()[i] + "</a> </li>");
+            $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + pergunta.getAlternativas()[i] + "</a> </li>");
+        }
+    };
+    Question.validarResposta = function (resposta) {
+        if ($("#resposta").css("margin-top") != "0px") {
+            if (resposta == 0) {
+                $("#respostaErrada").hide();
+                $("#mensagem").html("Você <b>acertou</b>, parabéns!");
+            }
+            else {
+                $("#respostaErrada").show();
+                $("#mensagem").html("A alternativa correta era <b>$a0</b>");
+            }
+            $("#resposta").animate({ "margin-top": "0vh" }, "fast");
+        }
+    };
+    Question.proxima = function () {
+        $("#resposta").animate({ "margin-top": "50vh" }, "fast");
+        $("#alternativas").html("");
+        var pergunta = new Alternativa("pergunta 2???", 2, ['nenene', 'nanana', 'ninini', 'nonono'], 1);
+        $("#enunciado").html(pergunta.getEnunciado());
+        for (var i = 0; i < 4; i++) {
+            $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + pergunta.getAlternativas()[i] + "</a> </li>");
         }
     };
     return Question;

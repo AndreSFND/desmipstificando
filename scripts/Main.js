@@ -38,4 +38,4 @@ Main.AdicionaTela("Mode", new Mode());
 Main.AdicionaTela("Level", new Level());
 Main.AdicionaTela("Question", new Question());
 Main.AdicionaTela("Win", new Win());
-Main.LoadPage('Index');
+Main.LoadPage('Question');
