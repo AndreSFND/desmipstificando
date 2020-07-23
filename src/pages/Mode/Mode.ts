@@ -19,5 +19,4 @@ class Mode extends Tela {
     OnExit() {
 
     }
-
 }
