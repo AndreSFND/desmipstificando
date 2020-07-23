@@ -4,7 +4,7 @@ class Partida {
 
     private nivel: number;
     private mode: number;
-    private questoesAlternativa: Alternativa[] = [];
+    private questoesAlternativa: Alternativa[];
 
     public getNivel(): number {
         return this.nivel;
@@ -30,13 +30,14 @@ class Partida {
         this.questoesAlternativa.push(questoesAlt);
     }
 
-    public removeUltimaQuestoesAlternativa(): void {
-        this.questoesAlternativa.pop();
+    public removeUltimaQuestoesAlternativa(): Alternativa {
+        return this.questoesAlternativa.pop();
     }
 
     constructor(nivel: number, mode: number) {
         this.setNivel(nivel);
         this.setMode(mode);
+        this.questoesAlternativa = [];
     }
 
     // A funcao advNivel eh inutil considerando a existencia de setNivel, mas ela da um aviso
@@ -51,7 +52,7 @@ class Partida {
 
 // Teste da classe
 
-let usuarioFake = 1;// Ele acha q eh bolacha e pera
+/*let usuarioFake = 1;// Ele acha q eh bolacha e pera
 let partidinha = new Partida(1, 1);
 let pergunta1 = new Alternativa("Biscoito ou bolacha?", 2, ['biscuit', 'bolache'], 1);// O certo eh bolacha
 let pergunta2 = new Alternativa("Leite ou pêra?", 1, ['leite', 'pêra'], 0);// O certo eh leite
@@ -88,4 +89,4 @@ if(usuarioFake == partidinha.getQuestoesAlternativa()[1].getCorreta())
 else
 {
     console.log("Voce errou!");
-}
+}*/

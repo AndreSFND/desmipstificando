@@ -11,6 +11,7 @@ class Main {
     private static telas: { [id: string] : Tela; } = {};    
     private static timer: number;
     private static paginaAtual: Tela;
+    public static partida: Partida;
 
     public static LoadPage(page: string): void {
 
@@ -71,6 +72,12 @@ class Main {
 
        }
 
+    }
+
+    public static comecaPartida(mode: number)
+    {
+        Main.partida = new Partida(1, mode); // nivel 1 sempre, modo escolhido
+        console.log("Partida comecada, nivel 1 modo "+Main.partida.getMode());
     }
 
 }
