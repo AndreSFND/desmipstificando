@@ -53,9 +53,10 @@ var Question = (function (_super) {
             Main.LoadPage("Level");
         }
     };
-    Question.validarResposta = function (questao, resposta) {
+    Question.validarResposta = function (questao, respostaDada) {
+        var respostaCerta = Main.partida.getQuestoesAlternativa()[questao].getCorreta();
         if ($("#resposta").css("margin-top") != "0px") {
-            if (resposta == Main.partida.getQuestoesAlternativa()[questao].getCorreta()) {
+            if (respostaDada == respostaCerta) {
                 $("#respostaErrada").hide();
                 $("#mensagem").html("Você <b>acertou</b>, parabéns!");
                 $('#correct').get(0).play();
@@ -63,7 +64,7 @@ var Question = (function (_super) {
             }
             else {
                 $("#respostaErrada").show();
-                $("#mensagem").html("A alternativa correta era <b>$a0</b>");
+                $("#mensagem").html("A alternativa correta era <b>$a" + respostaCerta + "</b>");
                 $('#incorrect').get(0).play();
             }
             $("#resposta").animate({ "margin-top": "0vh" }, "fast");
