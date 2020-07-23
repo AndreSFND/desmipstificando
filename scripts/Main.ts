@@ -77,7 +77,7 @@ class Main {
     public static comecaPartida(mode: number)
     {
         Main.partida = new Partida(1, mode); // nivel 1 sempre, modo escolhido
-        console.log("Partida comecada, nivel 1 modo "+Main.partida.getMode());
+        console.log("V1.3 - Partida comecada, nivel 1 modo "+Main.partida.getMode());
     }
 
 }

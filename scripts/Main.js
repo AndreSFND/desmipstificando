@@ -31,7 +31,7 @@ var Main = (function () {
     };
     Main.comecaPartida = function (mode) {
         Main.partida = new Partida(1, mode);
-        console.log("Partida comecada, nivel 1 modo " + Main.partida.getMode());
+        console.log("V1.3 - Partida comecada, nivel 1 modo " + Main.partida.getMode());
     };
     Main.telas = {};
     return Main;

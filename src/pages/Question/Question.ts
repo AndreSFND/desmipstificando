@@ -5,11 +5,13 @@ class Question extends Tela {
 
     public static corretas: number;
     public static atual: number;
+    public static totalQuestoes: number;
 
     OnEnter() {
 
         Question.corretas = 0;
         Question.atual = 0;
+        Question.totalQuestoes = 4;
 
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
@@ -25,11 +27,11 @@ class Question extends Tela {
             Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
             
             Question.mostraQuestao(Question.atual);
-
-            // @ts-ignore
-            $("#resposta").append(`<button id="botaoProxima" onClick="Question.proxima(${Question.atual})">Proxima</button>`);
-            console.log("Appended button for Proxima");
         });
+
+        // @ts-ignore
+        $("#resposta").append(`<button id="botaoProxima" onClick="Question.proxima(${Question.atual})">Proxima</button>`);
+        console.log("Appended button for Proxima");
     }
 
     OnExit() {
@@ -54,18 +56,27 @@ class Question extends Tela {
         {
             // @ts-ignore
             $("#alternativas").append(`<li> <a onClick="Question.validarResposta(${ numQuestao }, ${ i })"><span class="alternativa">$a${ i } </span>${questaoAtual.getAlternativas()[i]}</a> </li>`);
-            console.log("Colocado alternativa "+i+" no HTML");
+            //console.log("Colocado alternativa "+i+" no HTML");
         }
     }
 
     public static proxima() {
-
-        Question.atual += 1;
+        console.log("Questao "+Question.atual+". Acertos "+Question.corretas+"/"+Main.partida.getMode() * 2);
+        if(Question.atual < Question.totalQuestoes-1)
+        {
+            Question.atual += 1
+            console.log("Proxima questao");
+        }
+        else
+        {
+            Question.atual = 0;
+            console.log("Restart das questoes por muito erro");
+        }
 
         // @ts-ignore
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
 
-        if( Question.corretas < 2 ) {
+        if( Question.corretas < Main.partida.getMode() * 2) {
 
             // @ts-ignore
             $("#alternativas").html("");
@@ -75,7 +86,7 @@ class Question extends Tela {
 
             // @ts-ignore
             $('#win').get(0).play();
-            
+                
             Main.LoadPage("Level");
 
         }
