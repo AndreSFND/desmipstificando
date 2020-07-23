@@ -1,11 +1,11 @@
-interface pergunta {
+interface perguntaAlternativa {
     enunciado: string;
     dificuldade: number;
     alternativas: string[];
     correta: number;
 } 
 
-let perguntasMatrix: pergunta[] = [
+let perguntasMatrix: perguntaAlternativa[] = [
 
     // OBS : comentários temporários, pode ficar tranquilo que eles vão sair depois
     /* Template para a pergunta : 

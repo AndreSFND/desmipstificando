@@ -20,13 +20,14 @@ var Question = (function (_super) {
         Question.corretas = 0;
         Question.atual = 0;
         Question.totalQuestoes = 0;
+        Question.minAcertos = Main.partida.getMode() * 2;
+        perguntasMatrix.map(function (value, index) {
+            Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
+        });
+        Question.totalQuestoes = perguntasMatrix.length;
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
-            perguntasMatrix.map(function (value, index) {
-                Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
-            });
-            Question.totalQuestoes = perguntasMatrix.length;
             Question.mostraQuestao(Question.atual);
         });
     };
@@ -39,7 +40,7 @@ var Question = (function (_super) {
     };
     Question.mostraQuestao = function (numQuestao) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
-        $("#contador").html("0x" + Question.corretas + "/0x" + Main.partida.getMode() * 2);
+        $("#contador").html("0x" + Question.corretas + "/0x" + Question.minAcertos);
         $("#enunciado").html(questaoAtual.getEnunciado());
         console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
         for (var i = 0; i < (questaoAtual.getAlternativas()).length; i++) {
@@ -47,7 +48,7 @@ var Question = (function (_super) {
         }
     };
     Question.proxima = function () {
-        console.log("Questao " + Question.atual + ". Acertos " + Question.corretas + "/" + Main.partida.getMode() * 2);
+        console.log("Questao " + Question.atual + ". Acertos " + Question.corretas + "/" + Question.minAcertos);
         if (Question.atual < Question.totalQuestoes - 1) {
             Question.atual += 1;
             console.log("Proxima questao");
@@ -57,7 +58,7 @@ var Question = (function (_super) {
             console.log("Restart das questoes por muito erro");
         }
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
-        if (Question.corretas < Main.partida.getMode() * 2) {
+        if (Question.corretas < Question.minAcertos) {
             $("#alternativas").html("");
             Question.mostraQuestao(Question.atual);
         }

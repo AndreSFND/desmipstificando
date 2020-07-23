@@ -16,6 +16,12 @@ class Question extends Tela {
         Question.totalQuestoes = 0;
         Question.minAcertos = Main.partida.getMode() * 2;
 
+        perguntasMatrix.map( (value, index) => {
+            Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
+        } );
+
+        Question.totalQuestoes = perguntasMatrix.length;
+
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
 
@@ -23,12 +29,6 @@ class Question extends Tela {
             $("#root").append(el);
             
             Main.moveRight();
-
-            perguntasMatrix.map( (value, index) => {
-                Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
-            } );
-
-            Question.totalQuestoes = perguntasMatrix.length;
 
             Question.mostraQuestao(Question.atual);
         });
