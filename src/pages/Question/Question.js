@@ -19,14 +19,14 @@ var Question = (function (_super) {
     Question.prototype.OnEnter = function () {
         Question.corretas = 0;
         Question.atual = 0;
-        Question.totalQuestoes = 4;
+        Question.totalQuestoes = 0;
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
-            Question.addQuestaoAlternativa("pergunta 1?", 3, ['nenene', 'nanana', 'ninini', 'nonono'], 0);
-            Question.addQuestaoAlternativa("pergunta 2?", 2, ['aaa', 'bbb', 'ccc', 'ddd'], 1);
-            Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
-            Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
+            perguntasMatrix.map(function (value, index) {
+                Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
+            });
+            Question.totalQuestoes = perguntasMatrix.length;
             Question.mostraQuestao(Question.atual);
         });
     };
@@ -39,7 +39,7 @@ var Question = (function (_super) {
     };
     Question.mostraQuestao = function (numQuestao) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
-        $("#contador").html("0x" + Question.atual + "/0x" + Question.totalQuestoes);
+        $("#contador").html("0x" + Question.corretas + "/0x" + Main.partida.getMode() * 2);
         $("#enunciado").html(questaoAtual.getEnunciado());
         console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
         for (var i = 0; i < (questaoAtual.getAlternativas()).length; i++) {

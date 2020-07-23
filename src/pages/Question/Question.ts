@@ -1,5 +1,6 @@
 /// <reference path="../../classes/Tela.ts" />
 /// <reference path="../../classes/Questoes/Alternativa.ts" />
+/// <reference path="../../classes/Questoes/perguntas.ts" />
 
 class Question extends Tela {
 
@@ -11,7 +12,7 @@ class Question extends Tela {
 
         Question.corretas = 0;
         Question.atual = 0;
-        Question.totalQuestoes = 4;
+        Question.totalQuestoes = 0;
 
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
@@ -21,11 +22,12 @@ class Question extends Tela {
             
             Main.moveRight();
 
-            Question.addQuestaoAlternativa("pergunta 1?", 3, ['nenene', 'nanana', 'ninini', 'nonono'], 0);
-            Question.addQuestaoAlternativa("pergunta 2?", 2, ['aaa', 'bbb', 'ccc', 'ddd'], 1);
-            Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
-            Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
-            
+            perguntasMatrix.map( (value, index) => {
+                Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
+            } );
+
+            Question.totalQuestoes = perguntasMatrix.length;
+
             Question.mostraQuestao(Question.atual);
         });
     }

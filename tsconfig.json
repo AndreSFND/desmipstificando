@@ -16,5 +16,6 @@
         "./src/pages/Level/Level.ts",
         "./src/pages/Question/Question.ts",
         "./src/pages/Win/Win.ts",
+        "./src/classes/Questoes/perguntas.ts",
     ]
 }
