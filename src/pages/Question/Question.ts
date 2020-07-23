@@ -28,10 +28,6 @@ class Question extends Tela {
             
             Question.mostraQuestao(Question.atual);
         });
-
-        // @ts-ignore
-        $("#resposta").append(`<button id="botaoProxima" onClick="Question.proxima(${Question.atual})">Proxima</button>`);
-        console.log("Appended button for Proxima");
     }
 
     OnExit() {
@@ -50,8 +46,13 @@ class Question extends Tela {
         let questaoAtual: Alternativa = Main.partida.getQuestoesAlternativa()[numQuestao];
 
         // @ts-ignore
+        $("#contador").html(`0x${Question.corretas}/0x${Main.partida.getMode() * 2}`);
+
+        // @ts-ignore
         $("#enunciado").html(questaoAtual.getEnunciado());
+
         console.log("Colocado enunciado - "+questaoAtual.getEnunciado()+" - no HTML");
+
         for(let i:number = 0 ; i < (questaoAtual.getAlternativas()).length; i++)
         {
             // @ts-ignore

@@ -19,6 +19,7 @@ var Question = (function (_super) {
     Question.prototype.OnEnter = function () {
         Question.corretas = 0;
         Question.atual = 0;
+        Question.totalQuestoes = 4;
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
@@ -28,8 +29,6 @@ var Question = (function (_super) {
             Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
             Question.mostraQuestao(Question.atual);
         });
-        $("#resposta").append("<button id=\"botaoProxima\" onClick=\"Question.proxima(" + Question.atual + ")\">Proxima</button>");
-        console.log("Appended button for Proxima");
     };
     Question.prototype.OnExit = function () {
     };
@@ -40,6 +39,7 @@ var Question = (function (_super) {
     };
     Question.mostraQuestao = function (numQuestao) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
+        $("#contador").html("0x" + Question.atual + "/0x" + Question.totalQuestoes);
         $("#enunciado").html(questaoAtual.getEnunciado());
         console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
         for (var i = 0; i < (questaoAtual.getAlternativas()).length; i++) {
@@ -48,7 +48,7 @@ var Question = (function (_super) {
     };
     Question.proxima = function () {
         console.log("Questao " + Question.atual + ". Acertos " + Question.corretas + "/" + Main.partida.getMode() * 2);
-        if (Question.atual < 3) {
+        if (Question.atual < Question.totalQuestoes - 1) {
             Question.atual += 1;
             console.log("Proxima questao");
         }
