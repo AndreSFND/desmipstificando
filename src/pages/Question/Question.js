@@ -22,6 +22,7 @@ var Question = (function (_super) {
             Main.moveRight();
             Question.addAlternativa();
         });
+        Question.corretas = 0;
     };
     Question.prototype.OnExit = function () {
     };
@@ -37,21 +38,30 @@ var Question = (function (_super) {
             if (resposta == 0) {
                 $("#respostaErrada").hide();
                 $("#mensagem").html("Você <b>acertou</b>, parabéns!");
+                $('#correct').get(0).play();
+                Question.corretas++;
             }
             else {
                 $("#respostaErrada").show();
                 $("#mensagem").html("A alternativa correta era <b>$a0</b>");
+                $('#incorrect').get(0).play();
             }
             $("#resposta").animate({ "margin-top": "0vh" }, "fast");
         }
     };
     Question.proxima = function () {
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
-        $("#alternativas").html("");
-        var pergunta = new Alternativa("pergunta 2???", 2, ['nenene', 'nanana', 'ninini', 'nonono'], 1);
-        $("#enunciado").html(pergunta.getEnunciado());
-        for (var i = 0; i < 4; i++) {
-            $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + pergunta.getAlternativas()[i] + "</a> </li>");
+        if (Question.corretas < 2) {
+            $("#alternativas").html("");
+            var pergunta = new Alternativa("pergunta 2???", 2, ['nenene', 'nanana', 'ninini', 'nonono'], 1);
+            $("#enunciado").html(pergunta.getEnunciado());
+            for (var i = 0; i < 4; i++) {
+                $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + pergunta.getAlternativas()[i] + "</a> </li>");
+            }
+        }
+        else {
+            $('#win').get(0).play();
+            Main.LoadPage("Level");
         }
     };
     return Question;
