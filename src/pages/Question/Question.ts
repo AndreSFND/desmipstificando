@@ -7,12 +7,14 @@ class Question extends Tela {
     public static corretas: number;
     public static atual: number;
     public static totalQuestoes: number;
+    public static minAcertos: number;
 
     OnEnter() {
 
         Question.corretas = 0;
         Question.atual = 0;
         Question.totalQuestoes = 0;
+        Question.minAcertos = Main.partida.getMode() * 2;
 
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
@@ -48,7 +50,7 @@ class Question extends Tela {
         let questaoAtual: Alternativa = Main.partida.getQuestoesAlternativa()[numQuestao];
 
         // @ts-ignore
-        $("#contador").html(`0x${Question.corretas}/0x${Main.partida.getMode() * 2}`);
+        $("#contador").html(`0x${Question.corretas}/0x${Question.minAcertos}`);
 
         // @ts-ignore
         $("#enunciado").html(questaoAtual.getEnunciado());
@@ -64,7 +66,7 @@ class Question extends Tela {
     }
 
     public static proxima() {
-        console.log("Questao "+Question.atual+". Acertos "+Question.corretas+"/"+Main.partida.getMode() * 2);
+        console.log("Questao "+Question.atual+". Acertos "+Question.corretas+"/"+Question.minAcertos);
         if(Question.atual < Question.totalQuestoes-1)
         {
             Question.atual += 1
@@ -79,7 +81,7 @@ class Question extends Tela {
         // @ts-ignore
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
 
-        if( Question.corretas < Main.partida.getMode() * 2) {
+        if( Question.corretas < Question.minAcertos) {
 
             // @ts-ignore
             $("#alternativas").html("");
