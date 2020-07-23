@@ -4,8 +4,12 @@
 class Question extends Tela {
 
     public static corretas: number;
+    public static atual: number;
 
     OnEnter() {
+
+        Question.corretas = 0;
+        Question.atual = 0;
 
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
@@ -16,13 +20,16 @@ class Question extends Tela {
             Main.moveRight();
 
             Question.addQuestaoAlternativa("pergunta 1?", 3, ['nenene', 'nanana', 'ninini', 'nonono'], 0);
-            Question.mostraAlternativas(0);
             Question.addQuestaoAlternativa("pergunta 2?", 2, ['aaa', 'bbb', 'ccc', 'ddd'], 1);
-            //Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
-        });
+            Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
+            Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
+            
+            Question.mostraQuestao(Question.atual);
 
-        Question.corretas = 0;
-        
+            // @ts-ignore
+            $("#resposta").append(`<button id="botaoProxima" onClick="Question.proxima(${Question.atual})">Proxima</button>`);
+            console.log("Appended button for Proxima");
+        });
     }
 
     OnExit() {
@@ -32,25 +39,28 @@ class Question extends Tela {
     public static addQuestaoAlternativa(enunciado: string, dificuldade: number, alternativas: string[], certa: number) {
         let pergunta = new Alternativa(enunciado, dificuldade, alternativas, certa);
         Main.partida.addUltimaQuestoesAlternativa(pergunta);
+
         console.log("Adicionado questao de alternativa.");
     }
 
-    public static mostraAlternativas(numQuestao: number)
+    public static mostraQuestao(numQuestao: number)
     {
         let questaoAtual: Alternativa = Main.partida.getQuestoesAlternativa()[numQuestao];
 
         // @ts-ignore
         $("#enunciado").html(questaoAtual.getEnunciado());
-        console.log("Adicionado enunciado - "+questaoAtual.getEnunciado()+" - no HTML");
+        console.log("Colocado enunciado - "+questaoAtual.getEnunciado()+" - no HTML");
         for(let i:number = 0 ; i < (questaoAtual.getAlternativas()).length; i++)
         {
             // @ts-ignore
             $("#alternativas").append(`<li> <a onClick="Question.validarResposta(${ numQuestao }, ${ i })"><span class="alternativa">$a${ i } </span>${questaoAtual.getAlternativas()[i]}</a> </li>`);
-            console.log("Adicionado alternativa "+i+" no HTML");
+            console.log("Colocado alternativa "+i+" no HTML");
         }
     }
 
-    public static proxima(antiga: number) {
+    public static proxima() {
+
+        Question.atual += 1;
 
         // @ts-ignore
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
@@ -60,8 +70,7 @@ class Question extends Tela {
             // @ts-ignore
             $("#alternativas").html("");
 
-            Question.mostraAlternativas(antiga+1);
-
+            Question.mostraQuestao(Question.atual);
         } else {
 
             // @ts-ignore

@@ -17,14 +17,18 @@ var Question = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Question.prototype.OnEnter = function () {
+        Question.corretas = 0;
+        Question.atual = 0;
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
             Question.addQuestaoAlternativa("pergunta 1?", 3, ['nenene', 'nanana', 'ninini', 'nonono'], 0);
-            Question.mostraAlternativas(0);
             Question.addQuestaoAlternativa("pergunta 2?", 2, ['aaa', 'bbb', 'ccc', 'ddd'], 1);
+            Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
+            Question.mostraAlternativas(Question.atual);
+            $("#resposta").append("<button id=\"botaoProxima\" onClick=\"Question.proxima(" + Question.atual + ")\">Proxima</button>");
+            console.log("Appended button for Proxima");
         });
-        Question.corretas = 0;
     };
     Question.prototype.OnExit = function () {
     };
@@ -36,26 +40,28 @@ var Question = (function (_super) {
     Question.mostraAlternativas = function (numQuestao) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
         $("#enunciado").html(questaoAtual.getEnunciado());
-        console.log("Adicionado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
+        console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
         for (var i = 0; i < (questaoAtual.getAlternativas()).length; i++) {
             $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + numQuestao + ", " + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + questaoAtual.getAlternativas()[i] + "</a> </li>");
-            console.log("Adicionado alternativa " + i + " no HTML");
+            console.log("Colocado alternativa " + i + " no HTML");
         }
     };
-    Question.proxima = function (antiga) {
+    Question.proxima = function () {
+        Question.atual += 1;
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
         if (Question.corretas < 2) {
             $("#alternativas").html("");
-            Question.mostraAlternativas(antiga + 1);
+            Question.mostraAlternativas(Question.atual);
         }
         else {
             $('#win').get(0).play();
             Main.LoadPage("Level");
         }
     };
-    Question.validarResposta = function (questao, resposta) {
+    Question.validarResposta = function (questao, respostaDada) {
+        var respostaCerta = Main.partida.getQuestoesAlternativa()[questao].getCorreta();
         if ($("#resposta").css("margin-top") != "0px") {
-            if (resposta == Main.partida.getQuestoesAlternativa()[questao].getCorreta()) {
+            if (respostaDada == respostaCerta) {
                 $("#respostaErrada").hide();
                 $("#mensagem").html("Você <b>acertou</b>, parabéns!");
                 $('#correct').get(0).play();
@@ -63,7 +69,7 @@ var Question = (function (_super) {
             }
             else {
                 $("#respostaErrada").show();
-                $("#mensagem").html("A alternativa correta era <b>$a0</b>");
+                $("#mensagem").html("A alternativa correta era <b>$a" + respostaCerta + "</b>");
                 $('#incorrect').get(0).play();
             }
             $("#resposta").animate({ "margin-top": "0vh" }, "fast");
