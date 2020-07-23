@@ -1,4 +1,4 @@
-/// <reference path="../../_classes/Tela.ts" />
+/// <reference path="../../classes/Tela.ts" />
 
 class Mode extends Tela {
 
