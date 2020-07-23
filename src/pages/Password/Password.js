@@ -48,6 +48,7 @@ var Password = (function (_super) {
         for (var i = 0; i < this.passwords.length; i++) {
             if (password == this.passwords[i].password) {
                 Main.LoadPage('Level');
+                $('#password').get(0).play();
             }
         }
     };

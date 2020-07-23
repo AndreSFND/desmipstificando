@@ -80,6 +80,8 @@ class Password extends Tela {
             if(password == this.passwords[i].password) {
 
                 Main.LoadPage('Level');
+                // @ts-ignore
+                $('#password').get(0).play();
 
             }
 
