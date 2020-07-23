@@ -25,7 +25,8 @@ var Question = (function (_super) {
             Question.addQuestaoAlternativa("pergunta 1?", 3, ['nenene', 'nanana', 'ninini', 'nonono'], 0);
             Question.addQuestaoAlternativa("pergunta 2?", 2, ['aaa', 'bbb', 'ccc', 'ddd'], 1);
             Question.addQuestaoAlternativa("pergunta 3?", 1, ['ooo', 'ppp', 'qqq', 'rrr'], 2);
-            Question.mostraAlternativas(Question.atual);
+            Question.addQuestaoAlternativa("pergunta 4?", 3, ['1111', '2222', '3333', '4444'], 3);
+            Question.mostraQuestao(Question.atual);
             $("#resposta").append("<button id=\"botaoProxima\" onClick=\"Question.proxima(" + Question.atual + ")\">Proxima</button>");
             console.log("Appended button for Proxima");
         });
@@ -37,7 +38,7 @@ var Question = (function (_super) {
         Main.partida.addUltimaQuestoesAlternativa(pergunta);
         console.log("Adicionado questao de alternativa.");
     };
-    Question.mostraAlternativas = function (numQuestao) {
+    Question.mostraQuestao = function (numQuestao) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
         $("#enunciado").html(questaoAtual.getEnunciado());
         console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
@@ -51,7 +52,7 @@ var Question = (function (_super) {
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
         if (Question.corretas < 2) {
             $("#alternativas").html("");
-            Question.mostraAlternativas(Question.atual);
+            Question.mostraQuestao(Question.atual);
         }
         else {
             $('#win').get(0).play();
