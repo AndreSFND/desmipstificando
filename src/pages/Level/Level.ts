@@ -1,5 +1,5 @@
 /// <reference path="../../../scripts/Main.ts" />
-/// <reference path="../../_classes/Tela.ts" />
+/// <reference path="../../classes/Tela.ts" />
 
 class Level extends Tela {
 

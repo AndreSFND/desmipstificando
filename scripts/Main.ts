@@ -1,4 +1,4 @@
-/// <reference path="../src/_classes/Tela.ts" />
+/// <reference path="../src/classes/Tela.ts" />
 /// <reference path="../src/Index.ts" />
 /// <reference path="../src/pages/Win/Win.ts" />
 /// <reference path="../src/pages/Mode/Mode.ts" />

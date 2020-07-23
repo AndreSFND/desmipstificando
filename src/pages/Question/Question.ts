@@ -1,5 +1,5 @@
-/// <reference path="../../_classes/Tela.ts" />
-/// <reference path="../../_classes/Questoes/Alternativa.ts" />
+/// <reference path="../../classes/Tela.ts" />
+/// <reference path="../../classes/Questoes/Alternativa.ts" />
 
 class Question extends Tela {
 
