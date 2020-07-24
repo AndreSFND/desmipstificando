@@ -21,9 +21,25 @@ var Level = (function (_super) {
             $("#root").append(el);
             Main.moveRight();
             Main.SetTimer(setTimeout(function () { return Main.LoadPage('Question'); }, 4000));
+            Level.setNivelProx();
         });
+        Level.passwords = [
+            { password: "1234", level: "1" },
+            { password: "2222", level: "2" },
+            { password: "3333", level: "3" },
+            { password: "4444", level: "4" }
+        ];
     };
     Level.prototype.OnExit = function () {
+    };
+    Level.setNivelProx = function () {
+        Main.partida.advNivel(Main.partida.getNivel() + 1);
+        $("#currentLevel").html("LEVEL " + Main.partida.getNivel());
+        for (var cont = 0; cont < 4; cont++) {
+            if (cont == Main.partida.getNivel() - 1) {
+                $("#code").html("PASS: " + Level.passwords[Main.partida.getNivel() - 1].password);
+            }
+        }
     };
     return Level;
 }(Tela));
