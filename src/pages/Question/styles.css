@@ -24,6 +24,7 @@
     float: left !important;
     text-transform: lowercase;
     line-height: 1.35;
+    font-weight: bold;
 }
 
 #question-main>h1:first-letter {
