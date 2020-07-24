@@ -30,8 +30,8 @@ var Main = (function () {
         }
     };
     Main.comecaPartida = function (mode) {
-        Main.partida = new Partida(1, mode);
-        console.log("V1.8 - Partida comecada, nivel 1 modo " + Main.partida.getMode());
+        Main.partida = new Partida(0, mode);
+        console.log("V1.9 - Partida comecada, nivel 0 modo " + Main.partida.getMode());
     };
     Main.telas = {};
     return Main;
