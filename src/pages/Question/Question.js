@@ -63,7 +63,7 @@ var Question = (function (_super) {
             Question.mostraQuestao(Question.atual);
         }
         else {
-            if (Main.partida.getNivel() >= 5) {
+            if (Main.partida.getNivel() >= 4) {
                 $('#win').get(0).play();
                 Main.LoadPage("Win");
             }

@@ -90,7 +90,7 @@ class Question extends Tela {
         } 
         else 
         {
-            if(Main.partida.getNivel() >= 5) // Se acabaram os niveis (max de 5 por enquanto)
+            if(Main.partida.getNivel() >= 4) // Se acabaram os niveis (max de 4 por enquanto)
             {
                 // @ts-ignore
                 $('#win').get(0).play();
