@@ -38,10 +38,10 @@ var Password = (function (_super) {
     };
     Password.getPasswords = function () {
         return Password.passwords = [
-            { password: "1234", level: "1" },
-            { password: "2222", level: "2" },
-            { password: "3333", level: "3" },
-            { password: "4444", level: "4" }
+            { password: "4578", level: "1" },
+            { password: "B0C2", level: "2" },
+            { password: "C1C9", level: "3" },
+            { password: "0802", level: "4" }
         ];
     };
     Password.Validar = function () {
