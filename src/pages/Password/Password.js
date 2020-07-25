@@ -51,7 +51,7 @@ var Password = (function (_super) {
         }
         for (var i = 0; i < this.passwords.length; i++) {
             if (password == this.passwords[i].password) {
-                Main.comecaPartida(parseInt(this.passwords[i].level) - 1, 1);
+                Main.comecaPartida(parseInt(this.passwords[i].level) - 1, 2);
                 Main.LoadPage('Level');
                 $('#password').get(0).play();
             }

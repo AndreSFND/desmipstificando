@@ -84,7 +84,7 @@ class Password extends Tela {
         for(let i=0; i<this.passwords.length; i++) {
 
             if(password == this.passwords[i].password) {
-                Main.comecaPartida(parseInt(this.passwords[i].level)-1, 1);
+                Main.comecaPartida(parseInt(this.passwords[i].level)-1, 2);
                 Main.LoadPage('Level');
                 // @ts-ignore
                 $('#password').get(0).play();
