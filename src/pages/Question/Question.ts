@@ -35,7 +35,6 @@ class Question extends Tela {
     }
 
     OnExit() {
-
     }
 
     public static addQuestaoAlternativa(enunciado: string, dificuldade: number, alternativas: string[], certa: number) {
@@ -81,19 +80,30 @@ class Question extends Tela {
         // @ts-ignore
         $("#resposta").animate({ "margin-top": "50vh" }, "fast");
 
-        if( Question.corretas < Question.minAcertos) {
+        if( Question.corretas < Question.minAcertos) 
+        {
 
             // @ts-ignore
             $("#alternativas").html("");
 
             Question.mostraQuestao(Question.atual);
-        } else {
-
-            // @ts-ignore
-            $('#win').get(0).play();
-                
-            Main.LoadPage("Level");
-
+        } 
+        else 
+        {
+            if(Main.partida.getNivel() >= 2) // Se acabaram os niveis (max de 2 por enquanto)
+            {
+                // @ts-ignore
+                $('#win').get(0).play();
+                        
+                Main.LoadPage("Win");
+            }
+            else
+            {
+                // @ts-ignore
+                $('#win').get(0).play();
+                    
+                Main.LoadPage("Level");
+            }
         }
     }
 

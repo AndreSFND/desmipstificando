@@ -20,7 +20,7 @@ var Win = (function (_super) {
         var el = $('<div></div>').load("./src/pages/Win", function () {
             $("#root").append(el);
             Main.moveRight();
-            Main.SetTimer(setTimeout(function () { return Main.LoadPage('Level'); }, 4000));
+            Main.SetTimer(setTimeout(function () { return Main.LoadPage('Index'); }, 4000));
         });
     };
     Win.prototype.OnExit = function () {

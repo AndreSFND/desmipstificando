@@ -12,7 +12,7 @@ class Win extends Tela {
             $("#root").append(el);
             
             Main.moveRight();
-            Main.SetTimer( setTimeout(() => Main.LoadPage('Level'), 4000) );
+            Main.SetTimer( setTimeout(() => Main.LoadPage('Index'), 4000) );
 
         });
 

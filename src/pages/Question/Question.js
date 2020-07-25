@@ -63,8 +63,14 @@ var Question = (function (_super) {
             Question.mostraQuestao(Question.atual);
         }
         else {
-            $('#win').get(0).play();
-            Main.LoadPage("Level");
+            if (Main.partida.getNivel() >= 2) {
+                $('#win').get(0).play();
+                Main.LoadPage("Win");
+            }
+            else {
+                $('#win').get(0).play();
+                Main.LoadPage("Level");
+            }
         }
     };
     Question.validarResposta = function (questao, respostaDada) {

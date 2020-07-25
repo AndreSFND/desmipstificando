@@ -6,7 +6,6 @@ class Level extends Tela {
     private static passwords: Pass[];
 
     OnEnter() {
-
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Level", () => {
 
