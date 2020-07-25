@@ -46,13 +46,7 @@ class Password extends Tela {
 
         });
 
-        Password.passwords = [
-
-            { password: "1234", level: "1" },
-            { password: "3333", level: "2" },
-            { password: "4444", level: "4" }
-        
-        ];
+        Password.getPasswords();
 
     }
 
@@ -60,6 +54,18 @@ class Password extends Tela {
 
         Password.passwords = [];
 
+    }
+
+    public static getPasswords()
+    {
+        return Password.passwords = [
+
+            { password: "1234", level: "1" },
+            { password: "2222", level: "2" },
+            { password: "3333", level: "3" },
+            { password: "4444", level: "4" }
+        
+        ];
     }
 
     /**
@@ -78,7 +84,7 @@ class Password extends Tela {
         for(let i=0; i<this.passwords.length; i++) {
 
             if(password == this.passwords[i].password) {
-
+                Main.comecaPartida(parseInt(this.passwords[i].level)-1, 1);
                 Main.LoadPage('Level');
                 // @ts-ignore
                 $('#password').get(0).play();

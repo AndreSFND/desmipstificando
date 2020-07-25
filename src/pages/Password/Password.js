@@ -31,14 +31,18 @@ var Password = (function (_super) {
                 }
             });
         });
-        Password.passwords = [
-            { password: "1234", level: "1" },
-            { password: "3333", level: "2" },
-            { password: "4444", level: "4" }
-        ];
+        Password.getPasswords();
     };
     Password.prototype.OnExit = function () {
         Password.passwords = [];
+    };
+    Password.getPasswords = function () {
+        return Password.passwords = [
+            { password: "1234", level: "1" },
+            { password: "2222", level: "2" },
+            { password: "3333", level: "3" },
+            { password: "4444", level: "4" }
+        ];
     };
     Password.Validar = function () {
         var password = "";
@@ -47,6 +51,7 @@ var Password = (function (_super) {
         }
         for (var i = 0; i < this.passwords.length; i++) {
             if (password == this.passwords[i].password) {
+                Main.comecaPartida(parseInt(this.passwords[i].level) - 1, 1);
                 Main.LoadPage('Level');
                 $('#password').get(0).play();
             }

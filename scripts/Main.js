@@ -29,9 +29,9 @@ var Main = (function () {
             });
         }
     };
-    Main.comecaPartida = function (mode) {
-        Main.partida = new Partida(0, mode);
-        console.log("V1.9 - Partida comecada, nivel 0 modo " + Main.partida.getMode());
+    Main.comecaPartida = function (level, mode) {
+        Main.partida = new Partida(level, mode);
+        console.log("V1.9 - Partida comecada, nivel " + Main.partida.getNivel() + " modo " + Main.partida.getMode());
     };
     Main.telas = {};
     return Main;

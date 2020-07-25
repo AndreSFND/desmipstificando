@@ -3,8 +3,6 @@
 
 class Level extends Tela {
 
-    private static passwords: Pass[];
-
     OnEnter() {
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Level", () => {
@@ -18,15 +16,7 @@ class Level extends Tela {
             Level.setNivelProx();
         });
 
-        // Essas passwords so servem para aparecer na tela, nao para realmente levar o usuario para o nivel certo
-        Level.passwords = [
-
-            { password: "1234", level: "1" },
-            { password: "2222", level: "2" },
-            { password: "3333", level: "3" },
-            { password: "4444", level: "4" }
-        
-        ];
+        Password.getPasswords();
         
     }
 
@@ -45,7 +35,7 @@ class Level extends Tela {
             if(cont == Main.partida.getNivel()-1)
             {
                 // @ts-ignore
-                $("#code").html(`PASS: ${Level.passwords[Main.partida.getNivel()-1].password}`);
+                $("#code").html(`PASS: ${Password.passwords[Main.partida.getNivel()-1].password}`);
             }
         }
         

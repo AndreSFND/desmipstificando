@@ -74,10 +74,10 @@ class Main {
 
     }
 
-    public static comecaPartida(mode: number)
+    public static comecaPartida(level:number, mode: number)
     {
-        Main.partida = new Partida(0, mode); // nivel 1 sempre, modo escolhido
-        console.log("V1.9 - Partida comecada, nivel 0 modo "+Main.partida.getMode());
+        Main.partida = new Partida(level, mode); // nivel e modo escolhido
+        console.log("V1.9 - Partida comecada, nivel "+Main.partida.getNivel()+" modo "+Main.partida.getMode());
     }
 
 }
