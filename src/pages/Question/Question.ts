@@ -16,11 +16,13 @@ class Question extends Tela {
         Question.totalQuestoes = 0;
         Question.minAcertos = Main.partida.getMode() * 2;
 
-        perguntasMatrix.map( (value, index) => {
+        // Mapeamento de perguntas, cada posicao X do perguntasMatrix eh um assunto diferente, 
+        // cada Y eh uma pergunta que eh tratada pelo .map()
+        perguntasMatrix[Main.partida.getNivel()-1].map( (value, index) => {
             Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
         } );
 
-        Question.totalQuestoes = perguntasMatrix.length;
+        Question.totalQuestoes = perguntasMatrix[Main.partida.getNivel()-1].length;
 
         // @ts-ignore
         var el = $('<div></div>').load("./src/pages/Question", () => {
@@ -54,8 +56,6 @@ class Question extends Tela {
         // @ts-ignore
         $("#enunciado").html(questaoAtual.getEnunciado());
 
-        console.log("Colocado enunciado - "+questaoAtual.getEnunciado()+" - no HTML");
-
         for(let i:number = 0 ; i < (questaoAtual.getAlternativas()).length; i++)
         {
             // @ts-ignore
@@ -65,7 +65,7 @@ class Question extends Tela {
     }
 
     public static proxima() {
-        console.log("Questao "+Question.atual+". Acertos "+Question.corretas+"/"+Question.minAcertos);
+        console.log("Questao "+(Question.atual+1)+"/"+Question.totalQuestoes+". Acertos "+Question.corretas+"/"+Question.minAcertos);
         if(Question.atual < Question.totalQuestoes-1)
         {
             Question.atual += 1
@@ -99,6 +99,12 @@ class Question extends Tela {
             }
             else
             {
+                let a = perguntasMatrix[Main.partida.getNivel()-1].length
+                while(a > 0)
+                {
+                    a--;
+                    Main.partida.removeUltimaQuestoesAlternativa();
+                }
                 // @ts-ignore
                 $('#win').get(0).play();
                     

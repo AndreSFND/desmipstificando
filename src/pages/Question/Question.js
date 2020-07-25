@@ -21,10 +21,10 @@ var Question = (function (_super) {
         Question.atual = 0;
         Question.totalQuestoes = 0;
         Question.minAcertos = Main.partida.getMode() * 2;
-        perguntasMatrix.map(function (value, index) {
+        perguntasMatrix[Main.partida.getNivel() - 1].map(function (value, index) {
             Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
         });
-        Question.totalQuestoes = perguntasMatrix.length;
+        Question.totalQuestoes = perguntasMatrix[Main.partida.getNivel() - 1].length;
         var el = $('<div></div>').load("./src/pages/Question", function () {
             $("#root").append(el);
             Main.moveRight();
@@ -42,13 +42,12 @@ var Question = (function (_super) {
         var questaoAtual = Main.partida.getQuestoesAlternativa()[numQuestao];
         $("#contador").html("0x" + Question.corretas + "/0x" + Question.minAcertos);
         $("#enunciado").html(questaoAtual.getEnunciado());
-        console.log("Colocado enunciado - " + questaoAtual.getEnunciado() + " - no HTML");
         for (var i = 0; i < (questaoAtual.getAlternativas()).length; i++) {
             $("#alternativas").append("<li> <a onClick=\"Question.validarResposta(" + numQuestao + ", " + i + ")\"><span class=\"alternativa\">$a" + i + " </span>" + questaoAtual.getAlternativas()[i] + "</a> </li>");
         }
     };
     Question.proxima = function () {
-        console.log("Questao " + Question.atual + ". Acertos " + Question.corretas + "/" + Question.minAcertos);
+        console.log("Questao " + (Question.atual + 1) + "/" + Question.totalQuestoes + ". Acertos " + Question.corretas + "/" + Question.minAcertos);
         if (Question.atual < Question.totalQuestoes - 1) {
             Question.atual += 1;
             console.log("Proxima questao");
@@ -68,6 +67,11 @@ var Question = (function (_super) {
                 Main.LoadPage("Win");
             }
             else {
+                var a = perguntasMatrix[Main.partida.getNivel() - 1].length;
+                while (a > 0) {
+                    a--;
+                    Main.partida.removeUltimaQuestoesAlternativa();
+                }
                 $('#win').get(0).play();
                 Main.LoadPage("Level");
             }
