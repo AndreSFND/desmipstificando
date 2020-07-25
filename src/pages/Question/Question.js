@@ -62,7 +62,7 @@ var Question = (function (_super) {
             Question.mostraQuestao(Question.atual);
         }
         else {
-            if (Main.partida.getNivel() >= 4) {
+            if (Main.partida.getNivel() >= perguntasMatrix.length) {
                 $('#win').get(0).play();
                 Main.LoadPage("Win");
             }

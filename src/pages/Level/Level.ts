@@ -30,7 +30,7 @@ class Level extends Tela {
         // @ts-ignore
         $("#currentLevel").html(`LEVEL ${Main.partida.getNivel()}`);
 
-        for(let cont: number = 0; cont < 4; cont++)
+        for(let cont: number = 0; cont < perguntasMatrix.length; cont++)
         {
             if(cont == Main.partida.getNivel()-1)
             {

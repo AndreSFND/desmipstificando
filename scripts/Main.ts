@@ -77,7 +77,7 @@ class Main {
     public static comecaPartida(level:number, mode: number)
     {
         Main.partida = new Partida(level, mode); // nivel e modo escolhido
-        console.log("V1.9 - Partida comecada, nivel "+Main.partida.getNivel()+" modo "+Main.partida.getMode());
+        console.log("V1.9 - Partida comecada, nivel "+Main.partida.getNivel()+"/"+perguntasMatrix.length+". Modo "+Main.partida.getMode());
     }
 
 }

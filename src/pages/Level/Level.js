@@ -30,7 +30,7 @@ var Level = (function (_super) {
     Level.setNivelProx = function () {
         Main.partida.advNivel(Main.partida.getNivel() + 1);
         $("#currentLevel").html("LEVEL " + Main.partida.getNivel());
-        for (var cont = 0; cont < 4; cont++) {
+        for (var cont = 0; cont < perguntasMatrix.length; cont++) {
             if (cont == Main.partida.getNivel() - 1) {
                 $("#code").html("PASS: " + Password.passwords[Main.partida.getNivel() - 1].password);
             }

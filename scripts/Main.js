@@ -31,7 +31,7 @@ var Main = (function () {
     };
     Main.comecaPartida = function (level, mode) {
         Main.partida = new Partida(level, mode);
-        console.log("V1.9 - Partida comecada, nivel " + Main.partida.getNivel() + " modo " + Main.partida.getMode());
+        console.log("V1.9 - Partida comecada, nivel " + Main.partida.getNivel() + "/" + perguntasMatrix.length + ". Modo " + Main.partida.getMode());
     };
     Main.telas = {};
     return Main;
