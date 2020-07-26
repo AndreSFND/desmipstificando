@@ -20,7 +20,7 @@ var perguntasMatrix = [
                 ".align 2: para o alinhamento de todas as palavras declaradas de 2 bytes",
                 ".align 0: para a declara\u00E7\u00E3o de palavras de 1 byte"
             ],
-            correta: 2
+            correta: 3
         },
         {
             enunciado: "O que o trecho add $t3, $t1, $t0 executa?",
@@ -111,17 +111,6 @@ var perguntasMatrix = [
                 "Sem esse registrador n\u00E3o \u00E9 poss\u00EDvel encerrar o programa"
             ],
             correta: 1
-        },
-        {
-            enunciado: "Selecione a alternativa que reserva na pilha o espaço para a inserção de três valores inteiros",
-            dificuldade: 1,
-            alternativas: [
-                "addi $sp, $sp, -12",
-                "lw $sp, 3($sp)",
-                "li $sp, 3",
-                "move $sp, $sp+12"
-            ],
-            correta: 0
         },
         {
             enunciado: "Selecione a alternativa que reserva na pilha o espaço para a inserção de três valores inteiros",
