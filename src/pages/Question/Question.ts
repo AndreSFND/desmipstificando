@@ -48,7 +48,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Funcao para adicionar uma questao de alternativa na partida
      */
     public static addQuestaoAlternativa(enunciado: string, dificuldade: number, alternativas: string[], certa: number) {
         let pergunta = new Alternativa(enunciado, dificuldade, alternativas, certa);
@@ -58,7 +58,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Uma funcao para mostrar uma questao na tela, e suas alternativas todas
      */
     public static mostraQuestao(numQuestao: number)
     {
@@ -79,7 +79,10 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Funcao para avancar uma questao. Nela, veverificamos se estouramos o total de questoes do nivel
+     * Caso sim, reiniciamos o loop de questoes, caso nao, simplesmente partimos para a proxima questao no vetor
+     * Tambem vale notar que, caso ele consiga o minimo de acertos do modo, ele verificara se deve avancar seu nivel para
+     * o proximo, ou dar a tela de win
      */
     public static proxima() {
         console.log("Questao "+(Question.atual+1)+"/"+Question.totalQuestoes+". Acertos "+Question.corretas+"/"+Question.minAcertos);
@@ -131,7 +134,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Uma funcao para validar a resposta dada e mostrar na tela se acertou ou errou
      */
     public static validarResposta(questao: number, respostaDada: number) {
 
