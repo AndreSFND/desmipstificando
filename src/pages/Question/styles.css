@@ -25,6 +25,7 @@
     text-transform: lowercase;
     line-height: 1.35;
     font-weight: bold;
+    height: 200px;
 }
 
 #question-main>h1::first-letter {
@@ -36,7 +37,6 @@
 }
 
 #question-main>ul {
-    margin-top: 8em;
     list-style: none;
 }
 

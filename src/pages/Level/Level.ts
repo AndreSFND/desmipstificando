@@ -1,3 +1,11 @@
+/**
+ * Classe responsavel pelo controle de dados da tela de Nivel
+ * 
+ * @author Andre Santana Fernandes <andre_sfnd@usp.br>
+ * @author Diogo Castanho Emidio <diogo.c@usp.br>
+ * @author Gabriel Monteiro Ferracioli <ferracioligabriel@usp.br>
+ * @author Leonardo Antonetti da Motta <l.a.motta@usp.br>
+ */
 /// <reference path="../../../scripts/Main.ts" />
 /// <reference path="../../classes/Tela.ts" />
 
@@ -23,6 +31,9 @@ class Level extends Tela {
     OnExit() {
     }
 
+    /**
+     * BOTTA COMENTE AQUI
+     */
     public static setNivelProx()
     {
         Main.partida.advNivel(Main.partida.getNivel()+1);

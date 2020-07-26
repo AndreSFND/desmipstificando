@@ -1,6 +1,34 @@
 var perguntasMatrix = [
     [
         {
+            enunciado: "Como declaramos uma string constante no código?"
+                + "<table border='1'>"
+                + "<tr>"
+                + "<td>Fetch</td>"
+                + "<td>Decode</td>"
+                + "<td>Execute</td>"
+                + "<td>Memory</td>"
+                + "<td>Write back</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td>300ps</td>"
+                + "<td>400ps</td>"
+                + "<td>250ps</td>"
+                + "<td>500ps</td>"
+                + "<td>100ps</td>"
+                + "</tr>"
+                + "</table>"
+                + "<br />",
+            dificuldade: 1,
+            alternativas: [
+                "string: .asciiz \"Hello World\"",
+                ".string \u201COla mundo\u201D",
+                "const: .byte \u201CHello World\u201D",
+                "define \u201COla Mundo\u201D .char"
+            ],
+            correta: 0
+        },
+        {
             enunciado: "Como declaramos uma string constante no código?",
             dificuldade: 1,
             alternativas: [
@@ -77,6 +105,17 @@ var perguntasMatrix = [
             ],
             correta: 1
         },
+        {
+            enunciado: "Escolha o comando que copia o conteúdo do registrador $f1, do tipo flutuante, para o registrador $f0",
+            dificuldade: 1,
+            alternativas: [
+                "l.s $f0, 0($t1)",
+                "mov.s $f0, $f1",
+                "neg.s $f1, $f0",
+                "add.s $f0, $f1, $f1"
+            ],
+            correta: 1
+        }
     ],
     [
         {
@@ -122,6 +161,17 @@ var perguntasMatrix = [
                 "move $sp, $sp+12"
             ],
             correta: 0
+        },
+        {
+            enunciado: "Escreva o comando que salva no registrador $t0 o endereço do label “rotulo”",
+            dificuldade: 1,
+            alternativas: [
+                "li $t0, rotulo",
+                "sw $rotulo, 0($sp)",
+                "jal rotulo",
+                "la $t0, rotulo"
+            ],
+            correta: 3
         },
     ],
     [
@@ -291,6 +341,17 @@ var perguntasMatrix = [
                 "Previs\u00E3o de desvios, Delay Slots e Forwarding"
             ],
             correta: 0
+        },
+        {
+            enunciado: "São os registradores intermediários dos respectivos bancos",
+            dificuldade: 1,
+            alternativas: [
+                "IF/ID: NCP e IR",
+                "ID/EX: A, B, C, Imm, NPC, IR[20..16] e IR[15..11]",
+                "EX/MEM: ALUOutput, BranchTarget, Rd e B",
+                "MEM/WB: ALUOutput, LMDB e Rd"
+            ],
+            correta: 2
         },
     ]
 ];

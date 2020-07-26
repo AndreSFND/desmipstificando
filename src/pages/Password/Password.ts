@@ -1,5 +1,16 @@
+/**
+ * Classe responsavel pelo controle de dados da tela de Password
+ * 
+ * @author Andre Santana Fernandes <andre_sfnd@usp.br>
+ * @author Diogo Castanho Emidio <diogo.c@usp.br>
+ * @author Gabriel Monteiro Ferracioli <ferracioligabriel@usp.br>
+ * @author Leonardo Antonetti da Motta <l.a.motta@usp.br>
+ */
 /// <reference path="../../classes/Tela.ts" />
 
+/**
+ * Interface de uma password
+ */
 interface Pass {
 
     password: string,
@@ -56,6 +67,9 @@ class Password extends Tela {
 
     }
 
+    /**
+     * Retorna as passwords disponiveis
+     */
     public static getPasswords()
     {
         return Password.passwords = [

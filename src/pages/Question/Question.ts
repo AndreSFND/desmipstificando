@@ -1,3 +1,11 @@
+/**
+ * Classe responsavel pelo controle de dados da tela de Question
+ * 
+ * @author Andre Santana Fernandes <andre_sfnd@usp.br>
+ * @author Diogo Castanho Emidio <diogo.c@usp.br>
+ * @author Gabriel Monteiro Ferracioli <ferracioligabriel@usp.br>
+ * @author Leonardo Antonetti da Motta <l.a.motta@usp.br>
+ */
 /// <reference path="../../classes/Tela.ts" />
 /// <reference path="../../classes/Questoes/Alternativa.ts" />
 /// <reference path="../../classes/Questoes/perguntas.ts" />
@@ -39,6 +47,9 @@ class Question extends Tela {
     OnExit() {
     }
 
+    /**
+     * BOTTA COMENTE AQUI
+     */
     public static addQuestaoAlternativa(enunciado: string, dificuldade: number, alternativas: string[], certa: number) {
         let pergunta = new Alternativa(enunciado, dificuldade, alternativas, certa);
         Main.partida.addUltimaQuestoesAlternativa(pergunta);
@@ -46,6 +57,9 @@ class Question extends Tela {
         console.log("Adicionado questao de alternativa.");
     }
 
+    /**
+     * BOTTA COMENTE AQUI
+     */
     public static mostraQuestao(numQuestao: number)
     {
         let questaoAtual: Alternativa = Main.partida.getQuestoesAlternativa()[numQuestao];
@@ -64,6 +78,9 @@ class Question extends Tela {
         }
     }
 
+    /**
+     * BOTTA COMENTE AQUI
+     */
     public static proxima() {
         console.log("Questao "+(Question.atual+1)+"/"+Question.totalQuestoes+". Acertos "+Question.corretas+"/"+Question.minAcertos);
         if(Question.atual < Question.totalQuestoes-1)
@@ -113,6 +130,9 @@ class Question extends Tela {
         }
     }
 
+    /**
+     * BOTTA COMENTE AQUI
+     */
     public static validarResposta(questao: number, respostaDada: number) {
 
         let respostaCerta: number = Main.partida.getQuestoesAlternativa()[questao].getCorreta();
@@ -148,4 +168,5 @@ class Question extends Tela {
         }
 
     }
+    
 }

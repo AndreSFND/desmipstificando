@@ -1,3 +1,12 @@
+/**
+ * Classe principal, responsavel por controlar o jogo
+ * 
+ * @author Andre Santana Fernandes <andre_sfnd@usp.br>
+ * @author Diogo Castanho Emidio <diogo.c@usp.br>
+ * @author Gabriel Monteiro Ferracioli <ferracioligabriel@usp.br>
+ * @author Leonardo Antonetti da Motta <l.a.motta@usp.br>
+ */
+
 /// <reference path="../src/classes/Tela.ts" />
 /// <reference path="../src/Index.ts" />
 /// <reference path="../src/pages/Win/Win.ts" />
@@ -13,6 +22,12 @@ class Main {
     private static paginaAtual: Tela;
     public static partida: Partida;
 
+    /**
+     * Carrega uma pagina. 
+     * (Chama o metodo OnEnter da nova pagina e o metodo OnExit da pagina antiga)
+     * 
+     * @param page nome da pagina a ser carregada
+     */
     public static LoadPage(page: string): void {
 
         clearInterval(this.timer);
@@ -25,18 +40,33 @@ class Main {
     
     }
 
+    /**
+     * Adiciona uma tela ao dicionario de telas
+     * 
+     * @param id identificador da tela
+     * @param tela objeto da tela
+     */
     public static AdicionaTela(id: string, tela: Tela) {
 
         this.telas[id] = tela;
 
     }
 
+    /**
+     * Define o timer
+     * (O timer eh salvo nesta classe para evitar conflitos entre diferentes timers)
+     * 
+     * @param timer 
+     */
     public static SetTimer(timer: number) {
 
         this.timer = timer;
 
     }
 
+    /**
+     * Executa a animacao de mover uma tela para a direita
+     */
     public static moveRight() {
 
         // @ts-ignore
@@ -57,6 +87,9 @@ class Main {
 
     }
 
+    /**
+     * Executa a animacao de mover uma tela para a esquerda
+     */
     public static moveLeft() {
 
         // @ts-ignore
@@ -74,6 +107,12 @@ class Main {
 
     }
 
+    /**
+     * Inicia uma partida
+     * 
+     * @param level 
+     * @param mode dificuldade
+     */
     public static comecaPartida(level: number, mode: number)
     {
         Main.partida = new Partida(level, mode); // nivel e modo escolhido
