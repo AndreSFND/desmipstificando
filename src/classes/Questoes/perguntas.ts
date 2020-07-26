@@ -49,7 +49,7 @@ let perguntasMatrix: perguntaAlternativa[][] =
                 `.align 2: para o alinhamento de todas as palavras declaradas de 2 bytes`,
                 `.align 0: para a declaração de palavras de 1 byte`
             ],
-            correta: 2
+            correta: 3
         },
 
         { 
@@ -151,18 +151,6 @@ let perguntasMatrix: perguntaAlternativa[][] =
                 `Sem esse registrador não é possível encerrar o programa`
             ],
             correta: 1
-        },
-
-        { 
-            enunciado: "Selecione a alternativa que reserva na pilha o espaço para a inserção de três valores inteiros", 
-            dificuldade: 1, 
-            alternativas: [
-                `addi $sp, $sp, -12`,
-                `lw $sp, 3($sp)`,
-                `li $sp, 3`,
-                `move $sp, $sp+12`
-            ],
-            correta: 0
         },
 
         { 
