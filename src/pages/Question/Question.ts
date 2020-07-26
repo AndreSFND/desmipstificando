@@ -22,7 +22,7 @@ class Question extends Tela {
         Question.corretas = 0;
         Question.atual = 0;
         Question.totalQuestoes = 0;
-        Question.minAcertos = Main.partida.getMode() * 2;
+        Question.minAcertos = (Main.partida.getMode() * 2) + 1;
 
         // Da uma ramdomizada nas perguntas de certo nivel
         perguntasMatrix[Main.partida.getNivel()-1].sort(function() {
