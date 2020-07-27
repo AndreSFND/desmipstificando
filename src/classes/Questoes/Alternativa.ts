@@ -26,6 +26,9 @@ class Alternativa extends Questao {
         this.setCorreta(correta);
     }
 
+    /**
+     * Checa se a alternativa sugerida eh a correta
+     */
     public checa(sugerido: number) {
         sugerido == this.correta ? super.setAcertou(true) : super.setAcertou(false);
     }

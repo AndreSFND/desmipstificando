@@ -22,8 +22,12 @@ class Question extends Tela {
         Question.corretas = 0;
         Question.atual = 0;
         Question.totalQuestoes = 0;
-        Question.minAcertos = Main.partida.getMode() * 2;
+        Question.minAcertos = (Main.partida.getMode() * 2) + 1;
 
+        // Da uma ramdomizada nas perguntas de certo nivel
+        perguntasMatrix[Main.partida.getNivel()-1].sort(function() {
+            return .5 - Math.random();
+        });
         // Mapeamento de perguntas, cada posicao X do perguntasMatrix eh um assunto diferente, 
         // cada Y eh uma pergunta que eh tratada pelo .map()
         perguntasMatrix[Main.partida.getNivel()-1].map( (value, index) => {
@@ -48,7 +52,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Funcao para adicionar uma questao de alternativa na partida
      */
     public static addQuestaoAlternativa(enunciado: string, dificuldade: number, alternativas: string[], certa: number) {
         let pergunta = new Alternativa(enunciado, dificuldade, alternativas, certa);
@@ -58,7 +62,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Uma funcao para mostrar uma questao na tela, e suas alternativas todas
      */
     public static mostraQuestao(numQuestao: number)
     {
@@ -79,7 +83,10 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Funcao para avancar uma questao. Nela, veverificamos se estouramos o total de questoes do nivel
+     * Caso sim, reiniciamos o loop de questoes, caso nao, simplesmente partimos para a proxima questao no vetor
+     * Tambem vale notar que, caso ele consiga o minimo de acertos do modo, ele verificara se deve avancar seu nivel para
+     * o proximo, ou dar a tela de win
      */
     public static proxima() {
         console.log("Questao "+(Question.atual+1)+"/"+Question.totalQuestoes+". Acertos "+Question.corretas+"/"+Question.minAcertos);
@@ -131,7 +138,7 @@ class Question extends Tela {
     }
 
     /**
-     * BOTTA COMENTE AQUI
+     * Uma funcao para validar a resposta dada e mostrar na tela se acertou ou errou
      */
     public static validarResposta(questao: number, respostaDada: number) {
 

@@ -40,8 +40,10 @@ class Partida {
         this.questoesAlternativa = [];
     }
 
-    // A funcao advNivel eh inutil considerando a existencia de setNivel, mas ela da um aviso
-    // No console para testar
+    /** 
+     * A funcao advNivel eh inutil considerando a existencia de setNivel, mas ela da um aviso
+     * No console para testar
+    */
     public advNivel(novoNivel: number)
     {
         console.log("O nivel foi alterado. De "+ this.getNivel() +" voce foi para...");
