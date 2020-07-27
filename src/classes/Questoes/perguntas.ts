@@ -623,6 +623,30 @@ let perguntasMatrix: perguntaAlternativa[][] =
             correta: 1
         },
 
+        { 
+            enunciado:  `<div style='display: flex; flex-direction: row;'>
+
+                            <text style='width: 60%'>Considerando o código e sendo “X” para quando o valor for irrelevante, os valores dos respectivos registradores no final do ciclo de clock de quando o pipeline enche completamente são:</text>
+
+                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px; text-transform: none;'>
+                                <li>lw $t0, 0($sp)</li>
+                                <li>sw $t1, 0($sp)</li>
+                                <li>add $t2, $t3, $t4</li>
+                                <li>and $t4, $t5, $t6</li>
+                                <li>sw $t0, 4($sp)</li>
+                            </ul>
+                        
+                        </div>`,
+            dificuldade: 1, 
+            alternativas: [
+                `IF/ID.NPC: 12`,
+                `ID/EX.Imm: 0`,
+                `EX/MEM.BranchTarget: X`,
+                `MEM/WB.Rd: X`
+            ],
+            correta: 2
+        },
+
     ]
 
 ];

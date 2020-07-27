@@ -424,5 +424,16 @@ var perguntasMatrix = [
             ],
             correta: 1
         },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Considerando o c\u00F3digo e sendo \u201CX\u201D para quando o valor for irrelevante, os valores dos respectivos registradores no final do ciclo de clock de quando o pipeline enche completamente s\u00E3o:</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px; text-transform: none;'>\n                                <li>lw $t0, 0($sp)</li>\n                                <li>sw $t1, 0($sp)</li>\n                                <li>add $t2, $t3, $t4</li>\n                                <li>and $t4, $t5, $t6</li>\n                                <li>sw $t0, 4($sp)</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "IF/ID.NPC: 12",
+                "ID/EX.Imm: 0",
+                "EX/MEM.BranchTarget: X",
+                "MEM/WB.Rd: X"
+            ],
+            correta: 2
+        },
     ]
 ];

@@ -45,8 +45,6 @@ class Level extends Tela {
         {
             if(cont == Main.partida.getNivel()-1)
             {
-
-                let pass;
       
                 // @ts-ignore
                 $("#code").html(`PASS: ${Password.passwords[ ((Main.partida.getNivel()-1)*3)+Main.partida.getMode()-1 ].password}`);

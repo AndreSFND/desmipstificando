@@ -25,9 +25,9 @@ class Question extends Tela {
         Question.minAcertos = (Main.partida.getMode() * 2) + 1;
 
         // Da uma ramdomizada nas perguntas de certo nivel
-        perguntasMatrix[Main.partida.getNivel()-1].sort(function() {
-            return .5 - Math.random();
-        });
+        // perguntasMatrix[Main.partida.getNivel()-1].sort(function() {
+            // return .5 - Math.random();
+        // });
         // Mapeamento de perguntas, cada posicao X do perguntasMatrix eh um assunto diferente, 
         // cada Y eh uma pergunta que eh tratada pelo .map()
         perguntasMatrix[Main.partida.getNivel()-1].map( (value, index) => {

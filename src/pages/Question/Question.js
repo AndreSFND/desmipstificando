@@ -20,10 +20,7 @@ var Question = (function (_super) {
         Question.corretas = 0;
         Question.atual = 0;
         Question.totalQuestoes = 0;
-        Question.minAcertos = Main.partida.getMode() * 2;
-        perguntasMatrix[Main.partida.getNivel() - 1].sort(function () {
-            return .5 - Math.random();
-        });
+        Question.minAcertos = (Main.partida.getMode() * 2) + 1;
         perguntasMatrix[Main.partida.getNivel() - 1].map(function (value, index) {
             Question.addQuestaoAlternativa(value.enunciado, value.dificuldade, value.alternativas, value.correta);
         });
