@@ -23,12 +23,16 @@
     font-size: 2em !important;
     float: left !important;
     text-transform: lowercase;
-    line-height: 1.35;
     font-weight: bold;
+    line-height: 1.1em;
     height: 200px;
 }
 
 #question-main>h1::first-letter {
+    text-transform: uppercase;
+}
+
+#question-main>h1 text::first-letter {
     text-transform: uppercase;
 }
 
@@ -46,8 +50,6 @@
     border-radius: 4px;
     padding: 5px;
     transition: .2s background;
-    /* margin-top: 15px; */
-    /* margin-bottom: 15px; */
 }
 
 #question-footer {

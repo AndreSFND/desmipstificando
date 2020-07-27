@@ -1,34 +1,6 @@
 var perguntasMatrix = [
     [
         {
-            enunciado: "Como declaramos uma string constante no código?"
-                + "<table border='1'>"
-                + "<tr>"
-                + "<td>Fetch</td>"
-                + "<td>Decode</td>"
-                + "<td>Execute</td>"
-                + "<td>Memory</td>"
-                + "<td>Write back</td>"
-                + "</tr>"
-                + "<tr>"
-                + "<td>300ps</td>"
-                + "<td>400ps</td>"
-                + "<td>250ps</td>"
-                + "<td>500ps</td>"
-                + "<td>100ps</td>"
-                + "</tr>"
-                + "</table>"
-                + "<br />",
-            dificuldade: 1,
-            alternativas: [
-                "string: .asciiz \"Hello World\"",
-                ".string \u201COla mundo\u201D",
-                "const: .byte \u201CHello World\u201D",
-                "define \u201COla Mundo\u201D .char"
-            ],
-            correta: 0
-        },
-        {
             enunciado: "Como declaramos uma string constante no código?",
             dificuldade: 1,
             alternativas: [
@@ -115,7 +87,18 @@ var perguntasMatrix = [
                 "add.s $f0, $f1, $f1"
             ],
             correta: 1
-        }
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>O que este c\u00F3digo faz?</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>li $v0, 4</li>\n                                <li>la $a0, label_string</li>\n                                <li>syscall</li>\n                                <li>li $v0, 5</li>\n                                <li>syscall</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "Chama a fun\u00E7\u00E3o de leitura de uma string e depois encerra o programa",
+                "Entra na fun\u00E7\u00E3o label_string e depois l\u00EA um inteiro",
+                "Faz a leitura de uma string e a imprime em seguida",
+                "Imprime uma string e depois l\u00EA um inteiro"
+            ],
+            correta: 3
+        },
     ],
     [
         {
@@ -128,6 +111,61 @@ var perguntasMatrix = [
                 "Lista todos os valores de $a0 e $a1"
             ],
             correta: 0
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Escolha a op\u00E7\u00E3o a ser usada na pr\u00F3xima linha de c\u00F3digo, de modo que o resultado da multiplica\u00E7\u00E3o seja escrito no mesmo endere\u00E7o de leitura da mem\u00F3ria</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>lw $t1, 0($t0)</li>\n                                <li>mult $t1, $t1</li>\n                                <li>mflo $t2</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "move $t0, $t2",
+                "lw $t1, 0($t2)",
+                "syscall",
+                "sw $t2, 0($t0)"
+            ],
+            correta: 3
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Escolha a op\u00E7\u00E3o que completa o c\u00F3digo, de modo que o c\u00F3digo saia do loop quando o registrador deixar de ser negativo</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>???</li>\n                                <li>addi $t1, $t1, 1</li>\n                                <li>j loop</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "blt $t1, $zero, fim_loop",
+                "move $t1, $zero",
+                "ble $zero, $t1, fim_loop",
+                "j fim_loop"
+            ],
+            correta: 2
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Escolha qual \u00E9 a sa\u00EDda esperada para o c\u00F3digo caso a entrada seja 47</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>li $a0, 42</li>\n                                <li>li $v0, 5</li>\n                                <li>syscall</li>\n                                <li>move $a2, $v0</li>\n                                <li>sub $a0, $a0, $a2</li>\n                                <li>li $v0, 1</li>\n                                <li>syscall</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "42",
+                "-5",
+                "-89",
+                "47"
+            ],
+            correta: 1
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Assinale a alternativa que define o que faz o seguinte bloco de c\u00F3digo</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>addi $sp, $sp, -8</li>\n                                <li>sw $a2, 0($sp)</li>\n                                <li>sw $ra, 4($sp)</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "Aloca\u00E7\u00E3o de mem\u00F3ria na pilha",
+                "La\u00E7o de repeti\u00E7\u00E3o",
+                "Condicional de desvio / jump",
+                "Diretiva para o montador"
+            ],
+            correta: 0
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Considere o seguinte c\u00F3digo. Sabendo que ao entrar em loop $t0 guarda 5 e $a1 guarda 3, qual ser\u00E1 o valor de $t0 em fim_loop ?</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>li $t1, 1</li>\n                                <li>loop:</li>\n                                <li>&nbsp&nbsp&nbsp&nbsp ble $a1, $t1, fim_loop</li>\n                                <li>&nbsp&nbsp&nbsp&nbsp mul $t0, $t0, $a1</li>\n                                <li>&nbsp&nbsp&nbsp&nbsp addi $a1, $a1, -1</li>\n                                <li>&nbsp&nbsp&nbsp&nbsp j loop</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "125",
+                "30",
+                "15",
+                "8"
+            ],
+            correta: 1
         },
         {
             enunciado: "Selecione a alternativa que possui apenas comandos que não acessam a memória",
@@ -263,6 +301,28 @@ var perguntasMatrix = [
             ],
             correta: 3
         },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <table border='1' style='font-size: .6em; color: var(--text-color); border: none; margin-right: 30px; width: 400px; text-align: center'>\n                                <tr>\n                                    <td>Fetch</td>\n                                    <td>Decode</td>\n                                    <td>Execute</td>\n                                    <td>Memory</td>\n                                    <td>Write back</td>\n                                </tr>\n                                <tr style='font-weight: normal;'>\n                                    <td>300ps</td>\n                                    <td>400ps</td>\n                                    <td>250ps</td>\n                                    <td>500ps</td>\n                                    <td>100ps</td>\n                                </tr>\n                            </table>\n\n                            <text>Dadas as lat\u00EAncias, qual \u00E9 o tempo de ciclo na vers\u00E3o monociclo?</text>\n\n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "1350ps",
+                "520ps",
+                "420ps",
+                "1550ps"
+            ],
+            correta: 3
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <table border='1' style='font-size: .6em; color: var(--text-color); border: none; margin-right: 30px; width: 400px; text-align: center'>\n                                <tr>\n                                    <td>Fetch</td>\n                                    <td>Decode</td>\n                                    <td>Execute</td>\n                                    <td>Memory</td>\n                                    <td>Write back</td>\n                                </tr>\n                                <tr style='font-weight: normal;'>\n                                    <td>300ps</td>\n                                    <td>400ps</td>\n                                    <td>250ps</td>\n                                    <td>500ps</td>\n                                    <td>100ps</td>\n                                </tr>\n                            </table>\n\n                            <text>Dadas as lat\u00EAncias e, considerando que na vers\u00E3o pipeline cada est\u00E1gio consome outros 20ps entre os est\u00E1gios, qual \u00E9 a lat\u00EAncia de uma instru\u00E7\u00E3o na multiciclo?</text>\n\n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "2600ps",
+                "1850ps",
+                "1550ps",
+                "2400ps"
+            ],
+            correta: 0
+        },
     ],
     [
         {
@@ -352,6 +412,17 @@ var perguntasMatrix = [
                 "MEM/WB: ALUOutput, LMDB e Rd"
             ],
             correta: 2
+        },
+        {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Considerando o c\u00F3digo, que o pipeline tem 5 est\u00E1gios e nenhum tratamento de depend\u00EAncias foi implementado, ent\u00E3o existe hazard entre:</text>\n\n                            <ul style='list-style: none; font-size: .7em; color: var(--text-color); margin-left: 80px; text-transform: none;'>\n                                <li>I0: div $t2, $t5, $t8</li>\n                                <li>I1: sub $t9, $t2, $t7</li>\n                                <li>I2: add $t5, $t5, $a0</li>\n                                <li>I3: mul $a1, $t9, $t5</li>\n                                <li>I4: beq $t2, $a1, 100</li>\n                                <li>I5: or $t8, $t5, $t2</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "I2 e I5",
+                "I1 e I3",
+                "I0 e I5",
+                "I0 e I4"
+            ],
+            correta: 1
         },
     ]
 ];

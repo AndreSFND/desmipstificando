@@ -32,7 +32,8 @@ var Level = (function (_super) {
         $("#currentLevel").html("LEVEL " + Main.partida.getNivel());
         for (var cont = 0; cont < perguntasMatrix.length; cont++) {
             if (cont == Main.partida.getNivel() - 1) {
-                $("#code").html("PASS: " + Password.passwords[Main.partida.getNivel() - 1].password);
+                var pass = void 0;
+                $("#code").html("PASS: " + Password.passwords[((Main.partida.getNivel() - 1) * 3) + Main.partida.getMode() - 1].password);
             }
         }
     };

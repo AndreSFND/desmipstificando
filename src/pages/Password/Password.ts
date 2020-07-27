@@ -14,7 +14,8 @@
 interface Pass {
 
     password: string,
-    level: string
+    level: number,
+    mode: number,
 
 }
 
@@ -74,10 +75,18 @@ class Password extends Tela {
     {
         return Password.passwords = [
 
-            { password: "4578", level: "1" },
-            { password: "B0C2", level: "2" },
-            { password: "C1C9", level: "3" },
-            { password: "0802", level: "4" }
+            { password: "B318", level: 1, mode: 1 },
+            { password: "B4GR", level: 1, mode: 2 },
+            { password: "4578", level: 1, mode: 3 },
+            { password: "ICMC", level: 2, mode: 1 },
+            { password: "L1NK", level: 2, mode: 2 },
+            { password: "D1D1", level: 2, mode: 3 },
+            { password: "C3PO", level: 3, mode: 1 },
+            { password: "D3C0", level: 3, mode: 2 },
+            { password: "C1C9", level: 3, mode: 3 },
+            { password: "R2D2", level: 4, mode: 1 },
+            { password: "B0T4", level: 4, mode: 2 },
+            { password: "2D14", level: 4, mode: 3 }
         
         ];
     }
@@ -98,7 +107,7 @@ class Password extends Tela {
         for(let i=0; i<this.passwords.length; i++) {
 
             if(password == this.passwords[i].password) {
-                Main.comecaPartida(parseInt(this.passwords[i].level)-1, 2);
+                Main.comecaPartida(this.passwords[i].level-1, this.passwords[i].mode);
                 Main.LoadPage('Level');
                 // @ts-ignore
                 $('#password').get(0).play();
