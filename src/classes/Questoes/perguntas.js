@@ -78,6 +78,17 @@ var perguntasMatrix = [
             correta: 1
         },
         {
+            enunciado: "<div style='display: flex; flex-direction: row;'>\n\n                            <text style='width: 60%'>Assinale a op\u00E7\u00E3o para ser inserida no final do c\u00F3digo que n\u00E3o armazenar\u00E1 no registrador $t3 o valor 5 :</text>\n\n                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>\n                                <li>addi $t3, $zero, 0</li>\n                                <li>li $t0, 5</li>\n                                <li>move $t1, $t3</li>\n                            </ul>\n                        \n                        </div>",
+            dificuldade: 1,
+            alternativas: [
+                "move $t3, $t0",
+                "addi $t3, $zero, 5",
+                "add $t3, $t3, $t1",
+                "li $t3, 5"
+            ],
+            correta: 2
+        },
+        {
             enunciado: "Escolha o comando que copia o conteúdo do registrador $f1, do tipo flutuante, para o registrador $f0",
             dificuldade: 1,
             alternativas: [

@@ -113,6 +113,28 @@ let perguntasMatrix: perguntaAlternativa[][] =
         },
 
         { 
+            enunciado:  `<div style='display: flex; flex-direction: row;'>
+
+                            <text style='width: 60%'>Assinale a opção para ser inserida no final do código que não armazenará no registrador $t3 o valor 5 :</text>
+
+                            <ul style='list-style: decimal; font-size: .7em; color: var(--text-color); margin-left: 80px;'>
+                                <li>addi $t3, $zero, 0</li>
+                                <li>li $t0, 5</li>
+                                <li>move $t1, $t3</li>
+                            </ul>
+                        
+                        </div>`,
+            dificuldade: 1, 
+            alternativas: [
+                `move $t3, $t0`,
+                `addi $t3, $zero, 5`,
+                `add $t3, $t3, $t1`,
+                `li $t3, 5`
+            ],
+            correta: 2
+        },
+
+        { 
             enunciado: "Escolha o comando que copia o conteúdo do registrador $f1, do tipo flutuante, para o registrador $f0", 
             dificuldade: 1, 
             alternativas: [
