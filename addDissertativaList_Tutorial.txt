@@ -1,0 +1,10 @@
+Alterar perguntas.ts para perguntasObjetivas.ts 
+Mudar o nome do vetor perguntasMatrix para perguntasMatrixObjetivas dentro do arquivo tambem e todos os lugares que ele eh usado
+Criar o arquivo perguntasDissertativas, organizado de forma parecida com o perguntasObjetivas.ts, com o vetor perguntasMatrixDissertativas
+Criar classe para pergunta Dissertativa
+Partida.ts precisaria ter uma variavel para a classe Dissertativa, inicializar ela no constructor e metodos de add e remove
+Alterar todas as instancias que tratam perguntasMatrix (agora seria perguntasMatrixObjetivas) para tambem tratarem perguntasMatrixDissertativas
+A classe Question.ts mudaria bagarai, tanto q n to com saco de ver oq exatamente. Tudo q tem pra objetiva teria q ser replicado para dissertativa
+ - Ainda na Question.ts, mostraQuestao() precisaria verificar qual questao eh e tratar de acordo
+ - No proxima(), teria que tratar as dissertativas (remocao, etc) como ja trata as objetivas
+ - Teria que criar um validaResposta novo, ou alterar o existente para tratar input em string
