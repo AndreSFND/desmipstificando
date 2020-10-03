@@ -3,3 +3,6 @@ A single page application game that, just like Duolingo, tries to teach the conc
 
 You can access the game through this link:
 https://andresfnd.github.io/desmipstificando/
+
+Background taken from:
+https://retrowave-wallpapers.curtsingertrailers.net
